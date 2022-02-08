@@ -15,25 +15,9 @@ A fully featured Spring Application on top of Cassandra showing
 * **Thymeleaf:** how to build a user interface with Spring
 * **Spring Test:** How to run tests
 
-This application has been build by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtube. On his channel you can find the full *Code with me Series*, 16 episodes of the building of the application step-by-step
+This application has been built by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtuber. On his channel you can find the full *Code with me Series*, 16 episodes for building the application step-by-step.
 
 
-- [01 - Introduction to the series](https://www.youtube.com/watch?v=LxVGFBRpEFM)
-- [02 - About the app](https://www.youtube.com/watch?v=HAiCwq4jfn8)
-- [03 - System Design](https://www.youtube.com/watch?v=SnQXdvFkq4U)
-- [04 - Cassandra Schema](https://www.youtube.com/watch?v=106jIBE9XSc)
-- [05 - Setting up hosted](https://www.youtube.com/watch?v=waLSHx-VN08)
-- [06 - Creating the Data Loader](https://www.youtube.com/watch?v=d28t_QySyzs)
-- [07 - Connecting Spring Boot app to DataStax Astra](https://www.youtube.com/watch?v=7I37-awpaGg)
-- [08 - Using Repository pattern with Spring Data](https://www.youtube.com/watch?v=uezZIPK8kPk)
-- [09 - Saving all the authors in the world to Cassandra](https://www.youtube.com/watch?v=24NrLl8EhDM)
-- [10 - Setting up books by ID ](https://www.youtube.com/watch?v=Fm-XrOTgOto)
-- [11 - Starting with Spring boot and security](https://www.youtube.com/watch?v=nwyf_4aSkqM)
-- [12 - Implementing the Book view flow](https://www.youtube.com/watch?v=-IuafzgS3fU)
-- [13 - Building book search feature](https://www.youtube.com/watch?v=6K0im9vcoCk)
-- [14 - Tracking user interactions with books](https://www.youtube.com/watch?v=NEZGCpN1J6M)
-- [15 - Building the My Books feature](https://www.youtube.com/watch?v=ZIGImCqRr1I)
-- [16 - Wrapping Up](https://www.youtube.com/watch?v=hJLtsn2aSr4)
 
 <!--- ENDEXCLUDE --->
 
@@ -109,6 +93,26 @@ to later be able to access the database.
 #### 2a. Create the database
 
 _**`ASTRA DB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 20M read/write operations and 80GB storage monthly - sufficient to run small production workloads._
+
+## Code with me series on JavaBrains
+
+- [01 - Introduction to the series](https://www.youtube.com/watch?v=LxVGFBRpEFM)
+- [02 - About the app](https://www.youtube.com/watch?v=HAiCwq4jfn8)
+- [03 - System Design](https://www.youtube.com/watch?v=SnQXdvFkq4U)
+- [04 - Cassandra Schema](https://www.youtube.com/watch?v=106jIBE9XSc)
+- [05 - Setting up hosted](https://www.youtube.com/watch?v=waLSHx-VN08)
+- [06 - Creating the Data Loader](https://www.youtube.com/watch?v=d28t_QySyzs)
+- [07 - Connecting Spring Boot app to DataStax Astra](https://www.youtube.com/watch?v=7I37-awpaGg)
+- [08 - Using Repository pattern with Spring Data](https://www.youtube.com/watch?v=uezZIPK8kPk)
+- [09 - Saving all the authors in the world to Cassandra](https://www.youtube.com/watch?v=24NrLl8EhDM)
+- [10 - Setting up books by ID ](https://www.youtube.com/watch?v=Fm-XrOTgOto)
+- [11 - Starting with Spring boot and security](https://www.youtube.com/watch?v=nwyf_4aSkqM)
+- [12 - Implementing the Book view flow](https://www.youtube.com/watch?v=-IuafzgS3fU)
+- [13 - Building book search feature](https://www.youtube.com/watch?v=6K0im9vcoCk)
+- [14 - Tracking user interactions with books](https://www.youtube.com/watch?v=NEZGCpN1J6M)
+- [15 - Building the My Books feature](https://www.youtube.com/watch?v=ZIGImCqRr1I)
+- [16 - Wrapping Up](https://www.youtube.com/watch?v=hJLtsn2aSr4)
+
 
 You will now create a database with a keyspace in it (a _keyspace_ can contain _tables_.
 Today's application needs just a single table: it will be created for you the first time you
