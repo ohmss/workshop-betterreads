@@ -16,8 +16,22 @@ A fully featured Spring Application on top of Cassandra showing
 * **Spring Test:** How to run tests
 
 This application has been build by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtube. On his channel you can find the full *Code with me Series*, 16 episodes of the building of the application step-by-step
-- [Introducing new Code With Me Series - Build a book tracker app (Spring Boot + Cassandra)](https://www.youtube.com/watch?v=LxVGFBRpEFM)
-
+- [01 - Introduction to the series](https://www.youtube.com/watch?v=LxVGFBRpEFM)
+- [02 - About the app](https://www.youtube.com/watch?v=HAiCwq4jfn8)
+- [03 - System Design](https://www.youtube.com/watch?v=SnQXdvFkq4U)
+- [04](https://www.youtube.com/watch?v=106jIBE9XSc)
+- [05](https://www.youtube.com/watch?v=waLSHx-VN08)
+- [06](https://www.youtube.com/watch?v=d28t_QySyzs)
+- [07](https://www.youtube.com/watch?v=7I37-awpaGg)
+- [08](https://www.youtube.com/watch?v=uezZIPK8kPk)
+- [09](https://www.youtube.com/watch?v=24NrLl8EhDM)
+- [10](https://www.youtube.com/watch?v=Fm-XrOTgOto)
+- [11](https://www.youtube.com/watch?v=nwyf_4aSkqM)
+- [12](https://www.youtube.com/watch?v=-IuafzgS3fU)
+- [13](https://www.youtube.com/watch?v=6K0im9vcoCk)
+- [14](https://www.youtube.com/watch?v=NEZGCpN1J6M)
+- [15](https://www.youtube.com/watch?v=ZIGImCqRr1I)
+- [16](https://www.youtube.com/watch?v=hJLtsn2aSr4)
 
 <!--- ENDEXCLUDE --->
 
