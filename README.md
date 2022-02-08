@@ -16,22 +16,24 @@ A fully featured Spring Application on top of Cassandra showing
 * **Spring Test:** How to run tests
 
 This application has been build by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtube. On his channel you can find the full *Code with me Series*, 16 episodes of the building of the application step-by-step
+
+
 - [01 - Introduction to the series](https://www.youtube.com/watch?v=LxVGFBRpEFM)
 - [02 - About the app](https://www.youtube.com/watch?v=HAiCwq4jfn8)
 - [03 - System Design](https://www.youtube.com/watch?v=SnQXdvFkq4U)
-- [04](https://www.youtube.com/watch?v=106jIBE9XSc)
-- [05](https://www.youtube.com/watch?v=waLSHx-VN08)
-- [06](https://www.youtube.com/watch?v=d28t_QySyzs)
-- [07](https://www.youtube.com/watch?v=7I37-awpaGg)
-- [08](https://www.youtube.com/watch?v=uezZIPK8kPk)
-- [09](https://www.youtube.com/watch?v=24NrLl8EhDM)
-- [10](https://www.youtube.com/watch?v=Fm-XrOTgOto)
-- [11](https://www.youtube.com/watch?v=nwyf_4aSkqM)
-- [12](https://www.youtube.com/watch?v=-IuafzgS3fU)
-- [13](https://www.youtube.com/watch?v=6K0im9vcoCk)
-- [14](https://www.youtube.com/watch?v=NEZGCpN1J6M)
-- [15](https://www.youtube.com/watch?v=ZIGImCqRr1I)
-- [16](https://www.youtube.com/watch?v=hJLtsn2aSr4)
+- [04 - Cassandra Schema](https://www.youtube.com/watch?v=106jIBE9XSc)
+- [05 - Setting up hosted](https://www.youtube.com/watch?v=waLSHx-VN08)
+- [06 - Creating the Data Loader](https://www.youtube.com/watch?v=d28t_QySyzs)
+- [07 - Connecting Spring Boot app to DataStax Astra](https://www.youtube.com/watch?v=7I37-awpaGg)
+- [08 - Using Repository pattern with Spring Data](https://www.youtube.com/watch?v=uezZIPK8kPk)
+- [09 - Saving all the authors in the world to Cassandra](https://www.youtube.com/watch?v=24NrLl8EhDM)
+- [10 - Setting up books by ID ](https://www.youtube.com/watch?v=Fm-XrOTgOto)
+- [11 - Starting with Spring boot and security](https://www.youtube.com/watch?v=nwyf_4aSkqM)
+- [12 - Implementing the Book view flow](https://www.youtube.com/watch?v=-IuafzgS3fU)
+- [13 - Building book search feature](https://www.youtube.com/watch?v=6K0im9vcoCk)
+- [14 - Tracking user interactions with books](https://www.youtube.com/watch?v=NEZGCpN1J6M)
+- [15 - Building the My Books feature](https://www.youtube.com/watch?v=ZIGImCqRr1I)
+- [16 - Wrapping Up](https://www.youtube.com/watch?v=hJLtsn2aSr4)
 
 <!--- ENDEXCLUDE --->
 
@@ -84,13 +86,15 @@ TODO
 
 ## Table of contents
 
-1. [Create your Astra DB instance](#1-create-your-astra-db-instance)
-3. [Load the project into Gitpod](#3-load-the-project-into-gitpod)
-4. [Set up/start the API](#4-api-setup)
-5. [Set up/start the client](#5-client-setup)
-6. [Play!](#6-play-the-game)
-7. [Homework instructions](#7-homework-instructions)
-8. [Selected topics](#8-selected-topics)
+1. *Setup* - [Create your Astra DB instance](#)
+2. *Setup* - [Create your Keys](#)
+3. *Setup* - [Load the project into Gitpod](#)
+4. *Setup* - [Setup your environment](#)
+5. *Prepare DB* - [Create the Schema](#)
+6. *Prepare DB* - [Load the Data](#)
+7. *Application* - [Setup configuration](#)
+8. *Application* - [Start the application](#)
+9. [Homework instructions](#)
 
 ## Astra setup
 
