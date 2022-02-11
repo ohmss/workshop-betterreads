@@ -1,5 +1,5 @@
 <!--- STARTEXCLUDE --->
-# BetterReads: A close of Good Reads with the Spring Framework
+# BetterReads: A clone of Good Reads using the Spring Framework
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-goodreads-clone)
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -7,15 +7,16 @@
 
 Time: *50 minutes*. Difficulty: *Intermediate*. [Start Building!](#lets-start)
 
-A fully featured Spring Application on top of Cassandra showing
+A full-featured Spring Application on top of Cassandra showing
+
 * **Astra DB** (a Database-as-a-service built on Apache Cassandra)
 * **Spring Data:** the Object Mapping layer of Spring
 * **Spring Security:** how to handle authentication
-* **Spring MVC:** how to expose rest api and controllers
+* **Spring MVC:** how to expose REST API and controllers
 * **Thymeleaf:** how to build a user interface with Spring
 * **Spring Test:** How to run tests
 
-This application has been built by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtuber. On his channel you can find the full *Code with me Series*, 16 episodes for building the application step-by-step.
+This application has been built by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtuber. On his channel you can find the full *Code with me Series*, 16 episodes for building this application step-by-step.
 
 
 
@@ -36,13 +37,13 @@ This application has been built by [**Java Brains**](https://www.youtube.com/cha
 > * [node 15 and npm 7 or later](https://www.whitesourcesoftware.com/free-developer-tools/blog/update-node-js/)
 > * [Python v3.8+ installed on your local system](https://www.python.org/downloads/)
 >
-> In this readme, we try to provide instructions for local development as well - but keep in mind that
-> the main focus is development on Gitpod, hence **We can't guarantee live support** about local development
-> in order to keep on track with the schedule. However, we will do our best to give you the info you need to succeed.
+> In this `README`, we try to provide instructions for local development as well - but keep in mind that
+the main focus is development on Gitpod, hence **We can't guarantee any live support** about local development in order to keep on track with the schedule. However, we will do our best to give you the info you need to succeed.
 
-- *What other prerequisites are there?*
+- *What other prerequisites are required?*
+
 > * You will need a GitHub account
-> * You will also need an Astra account: don't worry, we'll work through that in the following
+> * You will also need an Astra account: don't worry about this if you don't already have one, we'll work through that in the following
 
 - *Do I need to pay for anything for this workshop?*
 > * **No.** All tools and services we provide here are FREE.
