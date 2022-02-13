@@ -7,12 +7,17 @@ spring:
       client:
         registration:
           github:
-            client-id: Iv1.a9958b0f68563669
-            client-secret: 41655317cc2302b59792654751682e7e6e2817cd
+            client-id: Iv1.abf132a0e5ddf61f
+            client-secret: cfd2ed7230a1dc67cd9266ee91c9613d3bd9a3c6
   data:
     cassandra:
       schema-action: create-if-not-exists
 
+datadump.location:
+  works: test-works.txt
+  #authors: test-authors.txt
+  authors: /Users/cedricklunven/Downloads/ol_dump_authors_2021-11-30.txt
+  
 astra:
   api:
     application-token: AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44

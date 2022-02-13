@@ -1,0 +1,59 @@
+tasks:
+  - name: setup
+    env:
+        CQLENG_ALLOW_SCHEMA_MANAGEMENT: 1
+    before: |
+      echo "Setting up tools, please wait..."
+      cd /workspace/workshop-goodreads-clone
+      
+      # Install Graal VM
+      sed -i '1,$s/sdkman_auto_answer=false/sdkman_auto_answer=true/' /home/gitpod/.sdkman/etc/config 
+      sed -i '1,$s/sdkman_selfupdate_enable=true/sdkman_selfupdate_enable=false/' /home/gitpod/.sdkman/etc/config 
+      sdk install java 21.2.0.r11-grl -y
+      echo "JDK [OK]"
+      
+      # Instal CqlSH
+      wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
+          && tar xvzf cqlsh-astra.tar.gz \
+          && rm -f cqlsh-astra.tar.gz
+      cp ~/.zshrc ~/.zshrc.init
+      if [ -f /workspace/workshop-goodreads-clone/zshrcinit ]; then
+          cp /workspace/workshop-goodreads-clone/zshrcinit ~/.zshrc
+      fi
+      echo "CQLSH [OK]"
+      
+      # Instal DS Bulk
+      curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
+          && tar xvzf dsbulk-1.8.0.tar.gz \
+          && rm -f dsbulk-1.8.0.tar.gz
+      echo "DSBULK [OK]"
+ports:
+  - port: 5005
+  - port: 8080
+    visibility: public
+  - port: 8081
+    onOpen: open-browser
+  - port: 9191
+    visibility: public
+    onOpen: open-browser
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: true
+    addLabel: false
+
+vscode:
+  extensions:
+    # Datastax Astra PLugin
+    - datastax.astra-for-vs-code
+    # Extension Pack for Java
+    - vscjava.vscode-java-pack
+    # Extension Pack for Spring boot
+    - Pivotal.vscode-boot-dev-pack
+   
