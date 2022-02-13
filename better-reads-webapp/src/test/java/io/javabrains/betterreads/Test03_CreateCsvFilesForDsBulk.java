@@ -1,4 +1,4 @@
-package io.javabrains.betterreads.loader;
+package io.javabrains.betterreads;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,6 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -19,17 +18,15 @@ import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
 
 import com.datastax.stargate.sdk.utils.Utils;
 
-/**
- * Build the expected input file for Datastax Bulk
- *
- * @author Cedrick LUNVEN (@clunven)
- */
-public class DataLoaderBatchTurbo {
+import io.javabrains.betterreads.author.Author;
 
-    // Input
+public class Test03_CreateCsvFilesForDsBulk {
+
+ // Input
     public static final String authorFile   = "/Users/cedricklunven/Downloads/ol_dump_authors_2021-11-30.txt";
     public static final String workFile     = "/Users/cedricklunven/Downloads/ol_dump_works_2021-11-30.txt";
     
@@ -38,19 +35,16 @@ public class DataLoaderBatchTurbo {
     public static final String HEADERS      = "id,author_id,author_names,book_description,book_name,cover_ids,published_date\n";
     public static final long BOOKS_PER_FILE = 250000;
     
-    /**
-     * Data LOADER, Plain old java 
-     */
-    public static void main(String[] args) throws IOException {
+    @Test
+    public void should_generate_csv() throws IOException {
         System.out.println("Generating files of " + BOOKS_PER_FILE + " records");
         generateCsvBookById(loadAuthors(), 0);
-        //generateCsvBookById(new HashMap<>(), 0);
     }
     
     /**
      * Load pivot file author_id/autho_name as an in-memeory map.
      */
-    public static Map<String, Author> loadAuthors() throws IOException {
+    public Map<String, Author> loadAuthors() throws IOException {
         System.out.println("Loading Authors in memory as a pivot (~9 millions records, ~1min)");
         long start = System.currentTimeMillis();
         AtomicInteger ai = new AtomicInteger();
@@ -83,7 +77,7 @@ public class DataLoaderBatchTurbo {
      * @throws IOException
      *      
      */
-    public static void generateCsvBookById(Map<String, Author> authors, long start)  
+    public void generateCsvBookById(Map<String, Author> authors, long start)  
     throws IOException {
         
         AtomicLong rownum = new AtomicLong(start);
@@ -109,7 +103,7 @@ public class DataLoaderBatchTurbo {
      * @return
      * @throws IOException
      */
-    private static Path getPath(long start, long rowNum) throws IOException {
+    private Path getPath(long start, long rowNum) throws IOException {
         String fileName = outputFolder + "book_by_id_" + (int) Math.floor(rowNum/BOOKS_PER_FILE) + ".csv";
         Path path = Paths.get(fileName);
         if (rowNum == start || rowNum % BOOKS_PER_FILE==0 ) {
@@ -130,7 +124,7 @@ public class DataLoaderBatchTurbo {
      * @return
      *      target row
      */
-    private static String mapWorkRow(Map<String, Author> authors, JSONObject jsonObj) {
+    private String mapWorkRow(Map<String, Author> authors, JSONObject jsonObj) {
         DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS"); 
         DateTimeFormatter dt2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter dt3 = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");

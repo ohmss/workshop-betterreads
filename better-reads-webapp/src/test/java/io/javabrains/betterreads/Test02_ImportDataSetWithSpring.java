@@ -1,4 +1,4 @@
-package io.javabrains.betterreads.loader;
+package io.javabrains.betterreads;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,18 +8,22 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import io.javabrains.betterreads.author.Author;
+import io.javabrains.betterreads.author.AuthorRepository;
 import io.javabrains.betterreads.book.Book;
 import io.javabrains.betterreads.book.BookRepository;
 
-@Service
-public class DataLoaderBatch {
+@SpringBootTest
+public class Test02_ImportDataSetWithSpring {
     
     @Autowired
     private AuthorRepository authorRepository;
@@ -32,7 +36,13 @@ public class DataLoaderBatch {
     
     @Value("${datadump.location.authors}")
     private String authorFile;
-   
+    
+    @Test
+    public void should_load_authors() throws IOException {
+        loadAuthors(0);
+        loadBooks();
+    }
+    
     public void loadAuthors(int startline) throws IOException {
        final AtomicInteger currentLine = new AtomicInteger(0);
        Files.lines(Paths.get(authorFile)).forEach(l -> {
@@ -93,12 +103,12 @@ public class DataLoaderBatch {
                                                .getString("key").replaceAll("/authors/", "")); 
                        }
                        b.setAuthorIds(authorIds);
-                       //b.setAuthorNames(authorIds.stream().map(authorRepository::findById).map(o -> {
-                       //    if (!o.isPresent()) {
-                       //        return "Uknown";
-                       //    }
-                       //    return o.get().getName();
-                       //}).collect(Collectors.toList()));
+                       b.setAuthorNames(authorIds.stream().map(authorRepository::findById).map(o -> {
+                           if (!o.isPresent()) {
+                               return "Uknown";
+                           }
+                           return o.get().getName();
+                       }).collect(Collectors.toList()));
                    }
 
                    System.out.println("saving book..." + b.getName());
@@ -110,5 +120,4 @@ public class DataLoaderBatch {
            });
     }
     
-
 }
