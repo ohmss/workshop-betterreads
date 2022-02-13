@@ -16,8 +16,8 @@ import io.javabrains.betterreads.user.BooksByUser;
 import io.javabrains.betterreads.user.BooksByUserRepository;
 
 @Controller
-public class HomeController {
-
+public class HomeController  {
+   
     private final String COVER_IMAGE_ROOT = "http://covers.openlibrary.org/b/id/";
 
     @Autowired
@@ -28,21 +28,24 @@ public class HomeController {
         if (principal == null || principal.getAttribute("login") == null) {
             return "index";
         }
-
         String userId = principal.getAttribute("login");
         Slice<BooksByUser> booksSlice = booksByUserRepository.findAllById(userId, CassandraPageRequest.of(0, 100));
         List<BooksByUser> booksByUser = booksSlice.getContent();
-        booksByUser = booksByUser.stream().distinct().map(book -> {
-            String coverImageUrl = "/images/no-image.png";
-            if (book.getCoverIds() != null & book.getCoverIds().size() > 0) {
-                coverImageUrl = COVER_IMAGE_ROOT + book.getCoverIds().get(0) + "-M.jpg";
-            }
-            book.setCoverUrl(coverImageUrl);
-            return book;
-        }).collect(Collectors.toList());
+        if (booksByUser != null) {
+            System.out.println(booksByUser.size());
+            booksByUser = booksByUser.stream().distinct().map(book -> {
+                String coverImageUrl = "/images/no-image.png";
+                if (book.getCoverIds() != null && book.getCoverIds().size() > 0) {
+                    coverImageUrl = COVER_IMAGE_ROOT + book.getCoverIds().get(0) + "-M.jpg";
+                }
+                book.setCoverUrl(coverImageUrl);
+                return book;
+            }).collect(Collectors.toList());
+        }
         model.addAttribute("books", booksByUser);
         return "home";
 
     }
+
     
 }

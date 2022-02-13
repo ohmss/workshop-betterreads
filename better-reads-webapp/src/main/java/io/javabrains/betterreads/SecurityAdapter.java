@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityAdapter extends WebSecurityConfigurerAdapter {
@@ -16,7 +17,6 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 	 */
     @Override
 	protected void configure(HttpSecurity http) throws Exception {
-		// @formatter:off
 		http
 			.authorizeRequests(a -> a
 				.anyRequest().permitAll()
@@ -28,10 +28,13 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 			)
 			.logout(l -> l
-				.logoutSuccessUrl("/").permitAll()
+			    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))            
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")     
+				.logoutSuccessUrl("/")
+				.permitAll()
 			)
 			.oauth2Login();
-		// @formatter:on
     }
     
 }

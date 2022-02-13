@@ -1,4 +1,8 @@
-
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+    
 spring:
   application:
     name: betterreads
@@ -7,15 +11,15 @@ spring:
       client:
         registration:
           github:
-            client-id: Iv1.abf132a0e5ddf61f
-            client-secret: cfd2ed7230a1dc67cd9266ee91c9613d3bd9a3c6
+            client-id: Iv1.cf8b7bc35ce335cb
+            client-secret: 947c56fff66d6019b0361931e4dee6e687a6fb8a
   data:
     cassandra:
       schema-action: create-if-not-exists
 
 datadump.location:
-  works: test-works.txt
-  #authors: test-authors.txt
+  works: src/test/resources/test-works.txt
+  #authors: src/test/resources/test-authors.txt
   authors: /Users/cedricklunven/Downloads/ol_dump_authors_2021-11-30.txt
   
 astra:

@@ -7,5 +7,8 @@ ${AnsiColor.BLUE} /_______  (____  /__| (____  /____  > |__| (____  /__/\_ \ /__
 ${AnsiColor.BLUE}         \/     \/          \/     \/            \/      \/         \/     \/          \/            |__|        \/           \/ 
 
 ${AnsiColor.CYAN} BetterReads with Spring Boot, String Data, Spring NVC, Spring security
+${AnsiColor.CYAN} An application by JabaBrains.
+
 
 ${AnsiColor.GREEN} The application will start at ${AnsiColor.RED}http://localhost:${server.port}${AnsiColor.BLACK}
+

@@ -72,8 +72,7 @@ public class UserBooksController {
         booksByUser.setRating(rating);
         booksByUserRepository.save(booksByUser);
 
-
-        return new ModelAndView("redirect:/books/" + bookId);
+        return new ModelAndView("redirect:/");
         
     }
 }

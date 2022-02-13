@@ -34,9 +34,9 @@ This application has been built by [**Java Brains**](https://www.youtube.com/cha
 > You don't have to, it's all already in the cloud! But there is nothing preventing you from running the workshop on your own machine.
 > If you do so, you will need
 > * git installed on your local system
-> * [node 15 and npm 7 or later](https://www.whitesourcesoftware.com/free-developer-tools/blog/update-node-js/)
-> * [Python v3.8+ installed on your local system](https://www.python.org/downloads/)
->
+> * Java 11+ Install on your local system
+> * Maven Install on your local system
+
 > In this `README`, we try to provide instructions for local development as well - but keep in mind that
 the main focus is development on Gitpod, hence **We can't guarantee any live support** about local development in order to keep on track with the schedule. However, we will do our best to give you the info you need to succeed.
 
@@ -58,14 +58,11 @@ the main focus is development on Gitpod, hence **We can't guarantee any live sup
 It doesn't matter if you join our workshop live or you prefer to work at your own pace,
 we have you covered. In this repository, you'll find everything you need for this workshop:
 
-- [Workshop Video](#)
 - [Slide deck](#)
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
 
 ## Homework
-
-TODO
 
 # Let's start
 

@@ -19,7 +19,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<astra-sdk.version>0.3.1-SNAPSHOT</astra-sdk.version>
+		<astra-sdk.version>0.3.0</astra-sdk.version>
 	</properties>
 
 	<dependencies>
