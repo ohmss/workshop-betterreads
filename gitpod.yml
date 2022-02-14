@@ -3,6 +3,8 @@ tasks:
     command: gp open README.md
   - name: setup-astra
     before: |
+      clear
+      echo "Initializing the environment, please wait..."
       cd /workspace/workshop-betterreads
       nvm install 16.11.1
       npm install -g npm@latest

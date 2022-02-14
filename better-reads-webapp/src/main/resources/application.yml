@@ -19,23 +19,20 @@ spring:
 
 datadump.location:
   works: src/test/resources/test-works.txt
-  #authors: src/test/resources/test-authors.txt
-  authors: /Users/cedricklunven/Downloads/ol_dump_authors_2021-11-30.txt
+  authors: src/test/resources/test-authors.txt
   
 astra:
   api:
-    application-token: AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44
-    database-id: 3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23
-    database-region: eu-west-1
+    application-token: ${ASTRA_DB_ADMIN_TOKEN}
+    database-id: ${ASTRA_DB_ID}
+    database-region: ${ASTRA_DB_REGION}
   cql:
     enabled: true
     download-scb:
       enabled: true
     driver-config:
       basic:
-        session-keyspace: better_reads
+        session-keyspace: ${ASTRA_DB_KEYSPACE}
       advanced:
         connection:
           init-query-timeout: 10s
-
-
