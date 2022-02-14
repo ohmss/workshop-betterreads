@@ -259,6 +259,40 @@ Operation directory: /workspace/workshop-betterreads/logs/LOAD_20220214-132501-5
 17,152 |      0 |  3,074 | 22.68 | 58.98 | 103.81 |    1.00
 ```
 
+- After about 1 minute. The file can have some errors like invalid title with special characters.
+
+```
+  total | failed | rows/s | p50ms | p99ms | p999ms | batches
+250,000 |    183 |  3,684 | 21.44 | 56.10 |  66.32 |    1.00
+Operation LOAD_20220214-185449-001328 completed with 183 errors in 1 minute and 7 seconds.
+```
+
+- You can also now import `book_by_id_1.csv`.
+
+- Count Records in the table `book_by_id`
+
+```
+/workspace/workshop-betterreads/tools/dsbulk-1.8.0/bin/dsbulk count \
+   -k better_reads \
+   -t book_by_id \
+   -u token \
+   -p ${ASTRA_DB_ADMIN_TOKEN} \
+   -b /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip
+```
+
+- Expected output (about 500.000k)
+
+```
+Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
+Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+A cloud secure connect bundle was provided: ignoring all explicit contact points.
+Operation directory: /workspace/workshop-betterreads/logs/COUNT_20220214-190203-775866
+  total | failed | rows/s |  p50ms |    p99ms |   p999ms
+499,679 |      0 | 57,806 | 210.15 | 6,207.57 | 6,207.57
+Operation COUNT_20220214-190203-775866 completed successfully in 8 seconds.
+499679
+```
+
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 10. Use Application in anonymous
