@@ -101,9 +101,51 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 - Provide the token you just created in the terminal
 
+```
+gitpod /workspace/workshop-betterreads (master) $ npm exec astra-setup workshops better_reads
+Checking your credentials...
 
+Login to Astra at https://dstx.io/workshops
+After login, you can create a database.
+Click on your name in the left-hand column
+In the dropdown, select "Organization Settings"
+    Select "Token Management" from the left-hand column
+    Select "Database Administrator" in the Role dropdown
+    Click "Generate Token"
+    Save to CSV if you want to access it later
+✔ Please paste the Database Admin Token here
+ … AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44
+Credentials set up, checking database
+Looking for workshops
+     workshops: Current status is ACTIVE
+         ... status is ACTIVE
+    existing workshops database found.
+Looking for better_reads keyspace
+    keyspace better_reads already exists
+Setting up secure bundle
+.cassandra Directory created successfully!
 
+Deleted file: cqlshrc
+gitpod /workspace/workshop-betterreads (master) $ 
+```
 
+- Set all env var
+```
+set -a # automatically export all variables
+source .env
+set +a
+```
+
+- Download SCB
+```
+cd /workspace/workshop-betterreads/better-reads-webapp
+mvn test -Dtest=io.javabrains.betterreads.Test01_Connectivity.java
+```
+
+- Check SCB
+```
+ls /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip
+```
 
 
 ## Code with me series on JavaBrains

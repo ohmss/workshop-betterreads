@@ -1,8 +1,6 @@
 tasks:
   - name: open-readme
     command: gp open README.md
-  
-  # Create Database if needed 
   - name: setup-astra
     before: |
       cd /workspace/workshop-betterreads
@@ -12,8 +10,6 @@ tasks:
     command: |
       cd /workspace/workshop-betterreads
       npm exec astra-setup workshops better_reads
- 
-  # Install and setup cqlsh
   - name: setup-cqlsh
     env:
         CQLENG_ALLOW_SCHEMA_MANAGEMENT: 1
@@ -27,9 +23,7 @@ tasks:
       if [ -f /workspace/workshop-betterreads/zshrcinit ]; then
           cp /workspace/workshop-betterreads/zshrcinit ~/.zshrc
       fi
-   
-   # Install and setup cqlsh
-   - name: setup-dsbulk
+  - name: setup-dsbulk
      before: |
        cd /workspace/workshop-betterreads/tools
        curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
