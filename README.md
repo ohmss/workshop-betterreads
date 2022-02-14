@@ -348,13 +348,50 @@ echo $(gp url 8080)/login/oauth2/code/github
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps2.png?raw=true)
 
-- Click button `[New Github Apps]`
+- Click button `[New Github Apps]` on the page
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps3.png?raw=true)
 
-- You will be asked to login again for security reasons
+- You will be asked to login again for security reasons, then fill the form to register a new Github App
 
-- Fill the form as follow
+|Name| Value|
+|---|---|
+| `Github App name`| The application name shown to user |
+| `Homepage URL`| Can be anything, just the app (gp url 8080) |
+| `CallbackURL`| Call back url the one listed above |
+
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps4.png?raw=true)
+
+- Uncheck the Webhook active box
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps5.png?raw=true)
+
+- In user permission put the email adress and read and profile as red/writes.
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps6.png?raw=true)
+
+- Allow `Any Account` to access
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps7.png?raw=true)
+
+- You got now your `Client ID`, check here it looks like `lv1....`. Click Generate a new client secret
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps8.png?raw=true)
+
+- Now you have it all time to update the application
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps9.png?raw=true)
+
+- Save the change
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps10.png?raw=true)
+
+
+```
+You are now doomed we will now mine cryptos with your github account 
+Just kidding.
+``` 
 
 - Open `application.yaml`
 
@@ -364,35 +401,7 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
 
 - Changes keys `client-id` and `client-secret` with your values
 
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps4.png?raw=true)
-
-cc
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps5.png?raw=true)
-
-
-cc
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps6.png?raw=true)
-
-cc
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps7.png?raw=true)
-
-cc
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps8.png?raw=true)
-
-cc
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps9.png?raw=true)
-
-
-You are now doomed we will now mine cryptos with your github account !!! 
-
-Just kidding....
-
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps11.png?raw=true)
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
