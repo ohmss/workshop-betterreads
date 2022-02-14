@@ -2,17 +2,6 @@ tasks:
   - name: open-readme
     command: gp open README.md
   - name: setup-astra
-    before: |
-      clear
-      echo "Initializing the environment, please wait..."
-      cd /workspace/workshop-betterreads
-      nvm install 16.11.1
-      npm install -g npm@latest
-      npm install astra-setup
-    command: |
-      cd /workspace/workshop-betterreads
-      npm exec astra-setup workshops better_reads
-  - name: setup-cqlsh
     env:
         CQLENG_ALLOW_SCHEMA_MANAGEMENT: 1
     before: |
@@ -20,17 +9,19 @@ tasks:
       wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
           && tar xvzf cqlsh-astra.tar.gz \
           && rm -f cqlsh-astra.tar.gz
-    command: |
-      cp ~/.zshrc ~/.zshrc.init
-      if [ -f /workspace/workshop-betterreads/zshrcinit ]; then
-          cp /workspace/workshop-betterreads/zshrcinit ~/.zshrc
-      fi
-  - name: setup-dsbulk
-    before: |
-       cd /workspace/workshop-betterreads/tools
-       curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
+      curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
           && tar xvzf dsbulk-1.8.0.tar.gz \
           && rm -f dsbulk-1.8.0.tar.gz
+      clear
+      echo "Initializing the environment, please wait..."
+      cd /workspace/workshop-betterreads
+      nvm install 16.11.1
+      npm install -g npm@latest
+      npm install astra-setup
+    command: |
+      clear
+      cd /workspace/workshop-betterreads
+      npm exec astra-setup workshops better_reads
 
 ports:
   - port: 5005
