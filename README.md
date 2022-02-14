@@ -1,7 +1,7 @@
 <!--- STARTEXCLUDE --->
 # Workshops 📘 Better Reads 📘 !
 
-<img src="img/badge.png?raw=true" width="200" align="right" />
+<img src="img/badge.png?raw=true" width="150" align="right" />
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-goodreads-clone)
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
@@ -11,7 +11,7 @@
 
 Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.
 
-## 📋 Table of contents
+## 📋 Table of content
 
 <img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" align="right" width="400px"/>
 
@@ -24,10 +24,10 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
 7. [Start and setup Gitpod](#7-start-and-setup-gitpod)
 8. [Work with CqlSh](#8-work-with-cqlsh)
 9. [Load Data with DSBulk](#9-load-data-with-dsbulk)
-10. [Use Application in anonymous](#)
-11. [Setup Github Apps](#)
-12. [Authentication in the Application](#)
-13. [Homeworks](#)
+10. [Use Application in anonymous](#10-use-application-in-anonymous)
+11. [Setup Github Apps](#11-setup-github-apps)
+12. [Authenticate and use application](#12-authenticate-and-use-application)
+13. [Homeworks](#13-homeworks)
 
 ## 1. Objectives
 
@@ -39,7 +39,7 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
   * **Thymeleaf:** how to build a user interface with Spring
   * **Spring Test:** How to run tests
 
-### 2. Acknowledgement
+### 2. Acknowledgements
 
 This application has been built based on the work of [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a famous youtuber *(500k+ subscribers)*. On his channel you can find the full [*Code with me Series*](https://www.youtube.com/watch?v=LxVGFBRpEFM), 16 episodes for building this application step-by-step. The link to each episode is provided at the end of this readme.
 
@@ -146,11 +146,15 @@ set -a && source /workspace/workshop-betterreads/.env && set +a && /workspace/wo
 
 *Notes that all tables are created   MAGIC !*
 
+[🏠 Back to Table of Contents](#-table-of-content)
+
 ## 9. Load Data with DSBulk
 
 TBD with DSbulk 
 
-## 6. Start the app
+[🏠 Back to Table of Contents](#-table-of-content)
+
+## 10. Use Application in anonymous
 
 - Start the app
 
@@ -159,8 +163,28 @@ cd /workspace/workshop-betterreads/better-reads-webapp
 mvn spring-boot:run
 ```
 
+[🏠 Back to Table of Contents](#-table-of-content)
 
-## Code with me series on JavaBrains
+## 11. Setup Github Apps
+
+[🏠 Back to Table of Contents](#-table-of-content)
+
+## 12. Authenticate and use application
+
+[🏠 Back to Table of Contents](#-table-of-content)
+
+## 13. Homeworks
+
+<img src="img/badge.png?raw=true" width="200" align="right" />
+
+Don't forget to complete your assignment and get your verified skill badge! Finish and submit your homework!
+
+1. Complete the practice steps as described below until you have your own app running in Gitpod.
+2. Answer the technical questions in the form (We promise, it is NOT difficult if you follow the workshop).
+3. Take a screenshot of you authenticated in the app with a few books
+4. Submit your homework [here](https://dtsx.io/homework-betterreads)
+
+5. *(totally optional)* Watch the full course on Javabrains.io
 
 - [01 - Introduction to the series](https://www.youtube.com/watch?v=LxVGFBRpEFM)
 - [02 - About the app](https://www.youtube.com/watch?v=HAiCwq4jfn8)
@@ -179,9 +203,4 @@ mvn spring-boot:run
 - [15 - Building the My Books feature](https://www.youtube.com/watch?v=ZIGImCqRr1I)
 - [16 - Wrapping Up](https://www.youtube.com/watch?v=hJLtsn2aSr4)
 
-
-You will now create a database with a keyspace in it (a _keyspace_ can contain _tables_.
-Today's application needs just a single table: it will be created for you the first time you
-will launch it, so don't worry too much).
-
-<img src="images/create_database_button.png" width="250" align=right />
+----
