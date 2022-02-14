@@ -27,11 +27,11 @@ import io.javabrains.betterreads.author.Author;
 public class Test03_CreateCsvFilesForDsBulk {
 
  // Input
-    public static final String authorFile   = "/Users/cedricklunven/Downloads/ol_dump_authors_2021-11-30.txt";
-    public static final String workFile     = "/Users/cedricklunven/Downloads/ol_dump_works_2021-11-30.txt";
+    public static final String authorFile   = "/Users/cedricklunven/Downloads/better_reads/ol_dump_authors_2021-11-30.txt";
+    public static final String workFile     = "/Users/cedricklunven/Downloads/better_reads/ol_dump_works_2021-11-30.txt";
     
     // Output
-    public static final String outputFolder = "/Users/cedricklunven/Downloads/output/"; 
+    public static final String outputFolder = "/Users/cedricklunven/Downloads/better_reads/csv_input/"; 
     public static final String HEADERS      = "id,author_id,author_names,book_description,book_name,cover_ids,published_date\n";
     public static final long BOOKS_PER_FILE = 250000;
     
@@ -168,7 +168,8 @@ public class Test03_CreateCsvFilesForDsBulk {
             // --- book_name
             sb.append(",");
             String title = jsonObj.optString("title");
-            if (Utils.hasLength(title)) sb.append("\"" + title.replaceAll("\"", "") + "\"");
+            if (Utils.hasLength(title)) sb.append("\"" + 
+                    title.replaceAll("\"", "") + "\"");
             
             // -- cover_ids
             List<String> coverIds = new ArrayList<>();

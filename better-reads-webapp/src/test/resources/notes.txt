@@ -1,25 +1,14 @@
 
-dsbulk load \
+/Users/cedricklunven/dev/dsbulk-1.8.0/bin/dsbulk load \
    -c csv \
    -k better_reads \
    -t book_by_id \
-   -u OLtIJoEBDYvHsruCtBgngIqC \
-   -p MHzcfpeZWs9ec8IMgFqUdTzv1p2Rs_A0P.Hovyoo3Wo,Z3inS6TGvFArRtrbY4-HhJh+NlgN+yOi-n6790N7iOCIh2tW_zED8xRl8+MoX9ibhZZlYM5,Ak-t2s2pfSSC \
+   -u token \
+   -p AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44 \
    -b /Users/cedricklunven/dev/cqlsh-astra/secure-connect-workshops.zip \
-   -url /Users/cedricklunven/Downloads/input
-   
-
-dsbulk load \
-   -url book_by_id.csv \
-   -c csv \
-   -k better_reads \
-   -t book_by_id \
-   -u OLtIJoEBDYvHsruCtBgngIqC \
-   -p MHzcfpeZWs9ec8IMgFqUdTzv1p2Rs_A0P.Hovyoo3Wo,Z3inS6TGvFArRtrbY4-HhJh+NlgN+yOi-n6790N7iOCIh2tW_zED8xRl8+MoX9ibhZZlYM5,Ak-t2s2pfSSC \
-   -b /Users/cedricklunven/dev/cqlsh-astra/secure-connect-workshops.zip \
-   -delim '|' \
-   -schema.allowMissingFields true
-   
+   -maxErrors -1 \
+   -logDir /Users/cedricklunven/Downloads/better_reads/logs \
+   -url /Users/cedricklunven/Downloads/better_reads/csv_input/book_by_id_0.csv
    
  dsbulk unload \
    -url target.csv \
@@ -29,43 +18,6 @@ dsbulk load \
    -p MHzcfpeZWs9ec8IMgFqUdTzv1p2Rs_A0P.Hovyoo3Wo,Z3inS6TGvFArRtrbY4-HhJh+NlgN+yOi-n6790N7iOCIh2tW_zED8xRl8+MoX9ibhZZlYM5,Ak-t2s2pfSSC \
    -b /Users/cedricklunven/dev/cqlsh-astra/secure-connect-workshops.zip
   
-   
-
-id|author_id|author_names|book_description|book_name|cover_ids|published_date
-1234|["id1","id2","id3"]|["name1","name2","name3"]|this is a dsecription|Book name|["cover1","cover2"]|2022-02-02
 
 
-CREATE TABLE better_reads.book_by_id (
-    id 				 text,
-    author_id 		 list<text>,
-    author_names 	 list<text>,
-    book_description text,
-    book_name 		 text,
-    cover_ids 		 list<text>,
-    published_date 	 date,
-    PRIMARY KEY((id))
-);
-
-CREATE TABLE better_reads.books_by_user (
-    user_id text,
-    readingstatus text,
-    timeuuid timeuuid,
-    book_id text,
-    author_names list<text>,
-    book_name text,
-    cover_ids list<text>,
-    rating int,
-    PRIMARY KEY ((user_id), readingstatus, timeuuid, book_id)
-) WITH CLUSTERING ORDER BY (readingstatus ASC, timeuuid DESC, book_id ASC);
-
-
-CREATE TABLE better_reads.book_by_user_and_bookid (
-    user_id text,
-    book_id text,
-    completed_date date,
-    rating int,
-    reading_status text,
-    started_date date,
-    PRIMARY KEY ((user_id, book_id))
-);
 

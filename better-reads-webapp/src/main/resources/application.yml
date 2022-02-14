@@ -23,16 +23,16 @@ datadump.location:
   
 astra:
   api:
-    application-token: ${ASTRA_DB_ADMIN_TOKEN}
-    database-id: ${ASTRA_DB_ID}
-    database-region: ${ASTRA_DB_REGION}
+    application-token: AstraCS:gdZaqzmFZszaBTOlLgeecuPs:edd25600df1c01506f5388340f138f277cece2c93cb70f4b5fa386490daa5d44
+    database-id: 3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23
+    database-region: eu-west-1
   cql:
     enabled: true
-    download-scb:
-      enabled: true
     driver-config:
       basic:
-        session-keyspace: ${ASTRA_DB_KEYSPACE}
+        session-keyspace: better_reads
       advanced:
         connection:
           init-query-timeout: 10s
+
+
