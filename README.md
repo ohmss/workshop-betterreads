@@ -152,7 +152,11 @@ It would be handy to have access to this CQLSH while doing the exercises and che
 
 - Open a new terminal with the proper icon as show below
 
-![new_terminal](img/newterminal.png?raw=true)
+![new_terminal2](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/new-terminal1.png?raw=true)
+
+or 
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/new-terminal2.png?raw=true)
 
 #### ✅ 8b. Enter the interactive Cqlsh *(it is a script we have created for you)*
 
@@ -205,28 +209,65 @@ author_by_id  books_by_user  book_by_id  book_by_user_and_bookid
 
 `DARK MAGIC !`
 
-
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 9. Load Data with DSBulk
 
+- Check you have the dataset ready. In the `BASH` terminal (not the cqlsh one). You should see the cql file `book_by_id_0.csv`.
+
 ```
-dsbulk load \
+ls -l /workspace/workshop-betterreads/dataset/
+```
+
+- Check how many rows. It should have more than 250k.
+
+```
+wc -l /workspace/workshop-betterreads/dataset/book_by_id_0.csv
+```
+
+- Check that Datastax bulk loader is properly installed *(Dark magic again)*
+
+```
+/workspace/workshop-betterreads/tools/dsbulk-1.8.0/bin/dsbulk --version
+```
+
+- Import the DataSet with the following command
+
+```
+/workspace/workshop-betterreads/tools/dsbulk-1.8.0/bin/dsbulk load \
    -c csv \
    -k better_reads \
    -t book_by_id \
    -u token \
-   -p ${ASTRA_DB_TOKEN} \
-   -b /Users/cedricklunven/dev/cqlsh-astra/secure-connect-workshops.zip \
-   -url /Users/cedricklunven/Downloads/input
+   -p ${ASTRA_DB_ADMIN_TOKEN} \
+   -b /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip \
+   -url /workspace/workshop-betterreads/dataset/book_by_id_0.csv
 ```
 
+- The batch is running and should be able to see the throughput at 3700 records per second.
 
-TBD with DSbulk 
+```
+Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
+Username and password provided but auth provider not specified, inferring PlainTextAuthProvider
+A cloud secure connect bundle was provided: ignoring all explicit contact points.
+A cloud secure connect bundle was provided and selected operation performs writes: changing default consistency level to LOCAL_QUORUM.
+Operation directory: /workspace/workshop-betterreads/logs/LOAD_20220214-132501-509314
+ total | failed | rows/s | p50ms | p99ms | p999ms | batches
+17,152 |      0 |  3,074 | 22.68 | 58.98 | 103.81 |    1.00
+```
+
+> TODO ⚠️ THE INPUT FILE HAS STILL 0.1% error and import will FAILED AFTER 150k records 
+
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 10. Use Application in anonymous
+
+- It would be handy to know the URL of the application
+
+```
+gp url 8080
+```
 
 - Start the app
 
@@ -235,9 +276,57 @@ cd /workspace/workshop-betterreads/better-reads-webapp
 mvn spring-boot:run
 ```
 
+- Output
+
+```
+
+ ________          __                   __                  ________                     .__                                     
+ \______ \ _____ _/  |______    _______/  |______  ___  ___ \______ \   _______  __ ____ |  |   ____ ______   ___________  ______
+  |    |  \\__  \\   __\__  \  /  ___/\   __\__  \ \  \/  /  |    |  \_/ __ \  \/ // __ \|  |  /  _ \\____ \_/ __ \_  __ \/  ___/
+  |    `   \/ __ \|  |  / __ \_\___ \  |  |  / __ \_>    <   |    `   \  ___/\   /\  ___/|  |_(  <_> )  |_> >  ___/|  | \/\___ \ 
+ /_______  (____  /__| (____  /____  > |__| (____  /__/\_ \ /_______  /\___  >\_/  \___  >____/\____/|   __/ \___  >__|  /____  >
+         \/     \/          \/     \/            \/      \/         \/     \/          \/            |__|        \/           \/ 
+
+ BetterReads with Spring Boot, String Data, Spring NVC, Spring security
+ An application by JabaBrains.
+
+
+ The application will start at http://localhost:8080
+
+
+13:37:20.276 INFO  com.datastax.astra.sdk.AstraClient              : Setup of AstraClient from application.yaml
+13:37:20.280 INFO  com.datastax.astra.sdk.config.AstraClientConfig : Initializing [AstraClient]
+13:37:20.459 INFO  com.datastax.astra.sdk.AstraClient              : + API(s) Devops     [ENABLED]
+13:37:20.459 INFO  com.datastax.astra.sdk.AstraClient              : + Db: id [3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23] and region [eu-west-1]
+13:37:20.460 INFO  com.datastax.astra.sdk.AstraClient              : + Downloading bundles in: [/home/gitpod/.astra]
+13:37:21.124 INFO  com.datastax.astra.sdk.databases.DatabaseClient : + SecureBundle found : scb_3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23_eu-west-1.zip
+13:37:21.124 INFO  com.datastax.astra.sdk.databases.DatabaseClient : + SecureBundle found : scb_3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23_eu-central-1.zip
+13:37:23.041 INFO  com.datastax.astra.sdk.AstraClient              : [AstraClient] has been initialized.
+```
+
+- In a new tab open the application with the above url
+
+```
+gp preview $(gp url 8080)
+```
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app1.png?raw=true)
+
+- In the search item look for `Glimpses of ancient Sowams` you can search to whatever you want it will request open library ut during this workshop you only imported a subset of books, let us pick one you imported
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app2.png?raw=true)
+
+- Select the first item, if you select the second you will hit the page book not found as this book is not in the DB
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app3.png?raw=true)
+
+This is only what we can do at this point. To mark the book as read we will need to authenticate against `GITHUB` and there is a few steps to make this happen.
+
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 11. Setup Github Apps
+
+
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
