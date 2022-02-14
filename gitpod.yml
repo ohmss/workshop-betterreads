@@ -1,42 +1,47 @@
 tasks:
-  - name: setup
+  - name: open-readme
+    command: gp open README.md
+  
+  # Create Database if needed 
+  - name: setup-astra
+    before: |
+      cd /workspace/workshop-betterreads
+      nvm install 16.11.1
+      npm install -g npm@latest
+      npm install astra-setup
+    command: |
+      cd /workspace/workshop-betterreads
+      npm exec astra-setup workshops better_reads
+ 
+  # Install and setup cqlsh
+  - name: setup-cqlsh
     env:
         CQLENG_ALLOW_SCHEMA_MANAGEMENT: 1
     before: |
-      echo "Setting up tools, please wait..."
-      cd /workspace/workshop-goodreads-clone
-      
-      # Install Graal VM
-      sed -i '1,$s/sdkman_auto_answer=false/sdkman_auto_answer=true/' /home/gitpod/.sdkman/etc/config 
-      sed -i '1,$s/sdkman_selfupdate_enable=true/sdkman_selfupdate_enable=false/' /home/gitpod/.sdkman/etc/config 
-      sdk install java 21.2.0.r11-grl -y
-      echo "JDK [OK]"
-      
-      # Instal CqlSH
+      cd /workspace/workshop-betterreads/tools
       wget https://downloads.datastax.com/enterprise/cqlsh-astra.tar.gz \
           && tar xvzf cqlsh-astra.tar.gz \
           && rm -f cqlsh-astra.tar.gz
+    command: |
       cp ~/.zshrc ~/.zshrc.init
-      if [ -f /workspace/workshop-goodreads-clone/zshrcinit ]; then
-          cp /workspace/workshop-goodreads-clone/zshrcinit ~/.zshrc
+      if [ -f /workspace/workshop-betterreads/zshrcinit ]; then
+          cp /workspace/workshop-betterreads/zshrcinit ~/.zshrc
       fi
-      echo "CQLSH [OK]"
-      
-      # Instal DS Bulk
-      curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
+   
+   # Install and setup cqlsh
+   - name: setup-dsbulk
+     before: |
+       cd /workspace/workshop-betterreads/tools
+       curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
           && tar xvzf dsbulk-1.8.0.tar.gz \
           && rm -f dsbulk-1.8.0.tar.gz
-      echo "DSBULK [OK]"
+
 ports:
   - port: 5005
   - port: 8080
-    visibility: public
-  - port: 8081
     onOpen: open-browser
-  - port: 9191
     visibility: public
-    onOpen: open-browser
-
+  
 github:
   prebuilds:
     master: true

@@ -78,19 +78,33 @@ we have you covered. In this repository, you'll find everything you need for thi
 8. *Application* - [Start the application](#)
 9. [Homework instructions](#)
 
-## Astra setup
 
-### 2. Create your Astra DB instance
+## 1. Create your Astra DB instance
 
-Besides the streaming platform, you'll also need a database for persistence of some
-game data (the server-side representation of the "game world").
+> Leveraging [Database creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance) create a database.
 
-Correspondingly, you will need some connection parameters and secrets in order
-to later be able to access the database.
+|Field|Value|
+|---|---|
+|**Database Name**| `workshops`|
+|**Keyspace Name**| `better_reads`|
 
-#### 2a. Create the database
 
-_**`ASTRA DB`** is the simplest way to run Cassandra with zero operations at all - just push the button and get your cluster. No credit card required, $25.00 USD credit every month, roughly 20M read/write operations and 80GB storage monthly - sufficient to run small production workloads._
+## 2. Create your Credentials, Keys, Token
+
+> Leveraging [Token creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token) create a token. (`AstraCS:blablablabla`)
+
+|Field|Value|
+|---|---|
+|**Role**| `Database Amimistrator`|
+
+## 3. Setup Gitpod
+
+- Provide the token you just created in the terminal
+
+
+
+
+
 
 ## Code with me series on JavaBrains
 
