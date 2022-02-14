@@ -70,9 +70,8 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 1. *Setup* - [Create your Astra DB instance](#)
 2. *Setup* - [Create your Keys](#)
-3. *Setup* - [Load the project into Gitpod](#)
-4. *Setup* - [Setup your environment](#)
-5. *Prepare DB* - [Create the Schema](#)
+3. *Setup* - [Setup Gitpod](#)
+4. *Cqlh* - [Cqlsh](#)
 6. *Prepare DB* - [Load the Data](#)
 7. *Application* - [Setup configuration](#)
 8. *Application* - [Start the application](#)
@@ -111,8 +110,7 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 - Enter your tokeb `AstraCS;blahblahblah` and press enter. Wait for all the operations to complete.
 
-
-## 4. Setup Gitpod
+## 4. Cqlsh
 
 - Interactive Cqlsh to Astra
 
@@ -120,18 +118,26 @@ we have you covered. In this repository, you'll find everything you need for thi
 /workspace/workshop-betterreads/cqlsh
 ```
 
-- You can start the app
-
-```
-cd /workspace/workshop-betterreads/better-reads-webapp
-mvn spring-boot:run
-```
-
-- Sample CQL command
+- CQL command to Astra (not interactive)
 
 ```
 set -a && source /workspace/workshop-betterreads/.env && set +a && /workspace/workshop-betterreads/tools/cqlsh-astra/bin/cqlsh -u token -p ${ASTRA_DB_ADMIN_TOKEN} -b /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip \
   -e "use better_reads;describe tables;"
+```
+
+*Notes that all tables are created   MAGIC !*
+
+## 5. Load the data
+
+TBD with DSbulk 
+
+## 6. Start the app
+
+- Start the app
+
+```
+cd /workspace/workshop-betterreads/better-reads-webapp
+mvn spring-boot:run
 ```
 
 
