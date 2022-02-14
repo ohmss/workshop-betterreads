@@ -111,6 +111,8 @@ we have you covered. In this repository, you'll find everything you need for thi
 |**Database Name**| `workshops`|
 |**Keyspace Name**| `better_reads`|
 
+If you already have a DB, you may need to resume it using the [Resuming Guide](https://github.com/datastaxdevs/awesome-astra/wiki/How-to-resume-a-database) and simply add the `better_reads` keyspace.
+
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 6. Create Astra Token
