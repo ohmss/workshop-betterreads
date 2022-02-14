@@ -26,7 +26,7 @@ tasks:
           cp /workspace/workshop-betterreads/zshrcinit ~/.zshrc
       fi
   - name: setup-dsbulk
-     before: |
+    before: |
        cd /workspace/workshop-betterreads/tools
        curl -OL https://downloads.datastax.com/dsbulk/dsbulk-1.8.0.tar.gz \
           && tar xvzf dsbulk-1.8.0.tar.gz \
