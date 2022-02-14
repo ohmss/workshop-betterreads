@@ -1,6 +1,8 @@
 <!--- STARTEXCLUDE --->
 # Workshops 📘 Better Reads 📘 !
 
+<img src="img/badge.png?raw=true" width="200" align="right" />
+
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-goodreads-clone)
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Discord](https://img.shields.io/discord/685554030159593522)](https://discord.com/widget?id=685554030159593522&theme=dark)
@@ -11,7 +13,7 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
 
 ## 📋 Table of contents
 
-<img src="https://github.com/datastaxdevs/workshop-spring-reactive/blob/master/doc/img/ui-veterinarians.png?raw=true" align="right" width="400px"/>
+<img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" align="right" width="400px"/>
 
 1. [Objectives](#1-objectives)
 2. [Acknowledgements](#2-acknowledgements)
