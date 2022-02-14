@@ -18,29 +18,6 @@ A full-featured Spring Application on top of Cassandra showing
 
 This application has been built by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtuber. On his channel you can find the full *Code with me Series*, 16 episodes for building this application step-by-step.
 
-
-```mermaid
-graph LR
-      API((API)) -- asks --> Domain((Domain))
-      Domain((Domain)) -- asks --> Data((Data))
-      Domain((Domain)) -- holds --> UseCases
-      Domain((Domain)) -- holds --> ProviderInterfaces
-      Data((Data)) -- holds --> DataProviders
-
-      subgraph DataLayer
-            ConcreteDataProvider -- abstracts --> Sources((Data Sources))
-      end
-      
-      subgraph DomainLayer
-            ConcreteUseCase -- uses --> ConcreteProviderInterface
-            ConcreteProviderInterface -- generalizes --> ConcreteDataProvider
-      end
-
-      subgraph ApiLayer
-            ConcreteController -- uses --> ConcreteUseCase
-      end
-```      
-
 <!--- ENDEXCLUDE --->
 
 ## Objectives
