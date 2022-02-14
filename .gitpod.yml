@@ -12,7 +12,6 @@ tasks:
           && tar xvzf dsbulk-1.8.0.tar.gz \
           && rm -f dsbulk-1.8.0.tar.gz
       clear
-      echo "Initializing the environment, please wait..."
       cd /workspace/workshop-betterreads
       nvm install 16.11.1
       npm install -g npm@latest
@@ -26,11 +25,9 @@ tasks:
       set -a
       source .env
       set +a
-      env | grep ASTRA
       cd /workspace/workshop-betterreads/better-reads-webapp
       mvn test -Dtest=io.javabrains.betterreads.Test01_Connectivity.java
 ports:
-  - port: 5005
   - port: 8080
     onOpen: open-browser
     visibility: public
@@ -48,10 +45,6 @@ github:
 
 vscode:
   extensions:
-    # Datastax Astra PLugin
     - datastax.astra-for-vs-code
-    # Extension Pack for Java
     - vscjava.vscode-java-pack
-    # Extension Pack for Spring boot
     - Pivotal.vscode-boot-dev-pack
-   
