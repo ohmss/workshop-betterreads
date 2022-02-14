@@ -135,7 +135,7 @@ If you already have a DB, you may need to resume it using the [Resuming Guide](h
 ✔ Please paste the Database Admin Token here
 ```
 
-- Enter your tokeb `AstraCS;blahblahblah` and press enter. Wait for all the operations to complete.
+- Enter your token `AstraCS;blahblahblah` and press enter. Wait for all the operations to complete.
 
 ```bash
 [INFO] ------------------------------------------------------------------------
