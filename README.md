@@ -135,26 +135,92 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 - Enter your tokeb `AstraCS;blahblahblah` and press enter. Wait for all the operations to complete.
 
+```bash
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.676 s
+[INFO] Finished at: 2022-02-14T13:00:07Z
+[INFO] ------------------------------------------------------------------------
+```
+
 ## 8. Work with CqlSh
 
-- Interactive Cqlsh to Astra
+#### ✅ 8a. Open new Terminal
+
+It would be handy to have access to this CQLSH while doing the exercises and check the content of the database.
+
+- Open a new terminal with the proper icon as show below
+
+![new_terminal](img/newterminal.png?raw=true)
+
+#### ✅ 8b. Enter the interactive Cqlsh *(it is a script we have created for you)*
 
 ```
 /workspace/workshop-betterreads/cqlsh
 ```
 
-- CQL command to Astra (not interactive)
+- It should look like
 
 ```
-set -a && source /workspace/workshop-betterreads/.env && set +a && /workspace/workshop-betterreads/tools/cqlsh-astra/bin/cqlsh -u token -p ${ASTRA_DB_ADMIN_TOKEN} -b /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip \
-  -e "use better_reads;describe tables;"
+Connected to cndb at 127.0.0.1:9042.
+[cqlsh 6.8.0 | Cassandra 4.0.0.6816 | CQL spec 3.4.5 | Native protocol v4]
+Use HELP for help.
+token@cqlsh>
 ```
 
-*Notes that all tables are created   MAGIC !*
+- List Keyspaces with 
+
+```sql
+describe keyspaces;
+```
+
+- Check that our keyspace `better_reads` is there
+
+```
+token@cqlsh> describe keyspaces;
+
+system_virtual_schema  system_auth   data_endpoint_auth  system_traces
+temporal_visibility    system_views  better_reads        ecommerce    
+netflix                system        spring_petclinic    todos        
+system_schema          datastax_sla  native_java         feeds_reader 
+
+token@cqlsh> 
+```
+
+- List `better_reads` tables
+
+```
+use better_reads;
+describe tables;
+```
+
+- Check that expected tables are there
+
+```bash
+token@cqlsh:better_reads> describe tables;
+
+author_by_id  books_by_user  book_by_id  book_by_user_and_bookid
+```
+
+`DARK MAGIC !`
+
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 9. Load Data with DSBulk
+
+```
+dsbulk load \
+   -c csv \
+   -k better_reads \
+   -t book_by_id \
+   -u token \
+   -p ${ASTRA_DB_TOKEN} \
+   -b /Users/cedricklunven/dev/cqlsh-astra/secure-connect-workshops.zip \
+   -url /Users/cedricklunven/Downloads/input
+```
+
 
 TBD with DSbulk 
 
