@@ -320,12 +320,76 @@ gp preview $(gp url 8080)
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app3.png?raw=true)
 
-This is only what we can do at this point. To mark the book as read we will need to authenticate against `GITHUB` and there is a few steps to make this happen.
+This is only what we can do at this point. To mark the book as read we will need to authenticate against `GITHUB`. 
+
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 11. Setup Github Apps
 
+Default settings in `application.yaml` use an application from `DatastaxDevelopers` but it must run locally. 
+
+As each attendee has a different URL in gitpod you will have to create your own github APPS. Let's do this together.
+
+- During github setting we will have to enter a callback URL. To know which one enter use the following command
+
+```
+clear
+echo $(gp url 8080)/login/oauth2/code/github
+```
+
+- Login to your github account and go to `Organizations`
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps1.png?raw=true)
+
+- There scroll down to locate the last item of the menu `Developer Settings` *(hopefully you have not as many organizations as me)*
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps2.png?raw=true)
+
+- Click button `[New Github Apps]`
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps3.png?raw=true)
+
+- You will be asked to login again for security reasons
+
+- Fill the form as follow
+
+- Open `application.yaml`
+
+```
+gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/application.yml
+```
+
+- Changes keys `client-id` and `client-secret` with your values
+
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps4.png?raw=true)
+
+cc
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps5.png?raw=true)
+
+
+cc
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps6.png?raw=true)
+
+cc
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps7.png?raw=true)
+
+cc
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps8.png?raw=true)
+
+cc
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps9.png?raw=true)
+
+
+You are now doomed we will now mine cryptos with your github account !!! 
+
+Just kidding....
 
 
 [🏠 Back to Table of Contents](#-table-of-content)
