@@ -242,6 +242,7 @@ wc -l /workspace/workshop-betterreads/dataset/book_by_id_0.csv
    -t book_by_id \
    -u token \
    -p ${ASTRA_DB_ADMIN_TOKEN} \
+   -maxErrors -1 \
    -b /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip \
    -url /workspace/workshop-betterreads/dataset/book_by_id_0.csv
 ```
