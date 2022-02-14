@@ -296,7 +296,7 @@ mvn spring-boot:run
  The application will start at http://localhost:8080
 
 
-13:37:20.276 INFO  com.datastax.astra.sdk.AstraClient              : Setup of AstraClient from application.yaml
+13:37:20.276 INFO  com.datastax.astra.sdk.AstraClient              : Setup of AstraClient from application.yml
 13:37:20.280 INFO  com.datastax.astra.sdk.config.AstraClientConfig : Initializing [AstraClient]
 13:37:20.459 INFO  com.datastax.astra.sdk.AstraClient              : + API(s) Devops     [ENABLED]
 13:37:20.459 INFO  com.datastax.astra.sdk.AstraClient              : + Db: id [3ed83de7-d97f-4fb6-bf9f-82e9f7eafa23] and region [eu-west-1]
@@ -329,7 +329,7 @@ This is only what we can do at this point. To mark the book as read we will need
 
 ## 11. Setup Github Apps
 
-Default settings in `application.yaml` use an application from `DatastaxDevelopers` but it must run locally. 
+Default settings in `application.yml` use an application from `DatastaxDevelopers` but it must run locally.
 
 As each attendee has a different URL in gitpod you will have to create your own github APPS. Let's do this together.
 
@@ -393,7 +393,7 @@ You are now doomed we will now mine cryptos with your github account
 Just kidding.
 ``` 
 
-- Open `application.yaml`
+- Open `application.yml`
 
 ```
 gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/application.yml
