@@ -11,7 +11,7 @@
 
 Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.
 
-[🏁 Access HANDS-ON](-start-hands-on)
+[🏁 Access HANDS-ON](#-start-hands-on)
 
 ## 📋 Table of content
 

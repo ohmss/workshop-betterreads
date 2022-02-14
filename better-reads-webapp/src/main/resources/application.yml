@@ -29,6 +29,8 @@ astra:
     database-region: eu-west-1
   cql:
     enabled: true
+    download-scb:
+      enabled: true
     driver-config:
       basic:
         session-keyspace: better_reads
