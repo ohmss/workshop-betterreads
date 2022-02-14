@@ -27,6 +27,7 @@ tasks:
       set +a
       cd /workspace/workshop-betterreads/better-reads-webapp
       mvn test -Dtest=io.javabrains.betterreads.Test01_Connectivity.java
+      cd /workspace/workshop-betterreads
 ports:
   - port: 8080
     onOpen: open-browser
