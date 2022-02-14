@@ -1,57 +1,88 @@
 <!--- STARTEXCLUDE --->
-# BetterReads: A clone of Good Reads using the Spring Framework
+# Workshops 📘 Better Reads 📘 !
 
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-goodreads-clone)
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Discord](https://img.shields.io/discord/685554030159593522)](https://discord.com/widget?id=685554030159593522&theme=dark)
 
-Time: *50 minutes*. Difficulty: *Intermediate*. [Start Building](#lets-start)
+> ⚠️ Difficulty: **`Intermediate`**
 
-A full-featured Spring Application on top of Cassandra showing
+Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.> 
 
-* **Astra DB** (a Database-as-a-service built on Apache Cassandra)
-* **Spring Data:** the Object Mapping layer of Spring
-* **Spring Security:** how to handle authentication
-* **Spring MVC:** how to expose REST API and controllers
-* **Thymeleaf:** how to build a user interface with Spring
-* **Spring Test:** How to run tests
+## 📋 Table of contents
 
-This application has been built by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtuber. On his channel you can find the full *Code with me Series*, 16 episodes for building this application step-by-step.
+<img src="https://github.com/datastaxdevs/workshop-spring-reactive/blob/master/doc/img/ui-veterinarians.png?raw=true" align="right" width="400px"/>
 
-<!--- ENDEXCLUDE --->
+1. [Objectives](#1-objectives)
+2. [Acknowledgements](#2-acknowledgements)
+3. [Frequently asked questions](#3-frequently-asked-questions)
+4. [Materials for the Session](#4-materials-for-the-session)
+5. [Create your Database](#5-create-astra-db-instance)
+6. [Create your Token](#6-create-astra-token)
+7. [Start and setup Gitpod](#7-start-and-setup-gitpod)
+8. [Work with CqlSh](#8-work-with-cqlsh)
+9. [Load Data with DSBulk](#9-load-data-with-dsbulk)
+10. [Use Application in anonymous](#)
+11. [Setup Github Apps](#)
+12. [Authentication in the Application](#)
+13. [Homeworks](#)
 
-## Objectives
+## 1. Objectives
 
-* Build an app end-to-end application with Spring boot **that scales** !
-* Understand how to connect to Cassandra and Astra with Spring
+* Discover how to use the following technologies: 
+  * **Astra DB** (a Database-as-a-service built on Apache Cassandra)
+  * **Spring Data:** the Object Mapping layer of Spring
+  * **Spring Security:** how to handle authentication
+  * **Spring MVC:** how to expose REST API and controllers
+  * **Thymeleaf:** how to build a user interface with Spring
+  * **Spring Test:** How to run tests
 
-## Frequently asked questions
+### 2. Acknowledgement
 
-- *Can I run the workshop on my computer?*
+This application has been built based on the work of [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a famous youtuber *(500k+ subscribers)*. On his channel you can find the full [*Code with me Series*](https://www.youtube.com/watch?v=LxVGFBRpEFM), 16 episodes for building this application step-by-step. The link to each episode is provided at the end of this readme.
 
-> You don't have to, it's all already in the cloud! But there is nothing preventing you from running the workshop on your own machine.
-> If you do so, you will need
-> * git installed on your local system
-> * Java 11+ Install on your local system
-> * Maven Install on your local system
+## 3. Frequently asked questions
 
-> In this `README`, we try to provide instructions for local development as well - but keep in mind that
-the main focus is development on Gitpod, hence **We can't guarantee any live support** about local development in order to keep on track with the schedule. However, we will do our best to give you the info you need to succeed.
+<p/>
+<details>
+<summary><b> 1️⃣ Can I run this workshop on my computer?</b></summary>
+<hr>
+<p>There is nothing preventing you from running the workshop on your own machine, If you do so, you will need the following
+<ol>
+<li><b>git</b> installed on your local system
+<li><b>JDK 8+</b> installed on your local system
+<li><b>Maven 3.6+</b> installed on your local system
+</ol>
+</p>
+In this readme, we try to provide instructions for local development as well - but keep in mind that the main focus is development on Gitpod, hence <strong>We can't guarantee live support</strong> about local development in order to keep on track with the schedule. However, we will do our best to give you the info you need to succeed.
+</details>
+<p/>
+<details>
+<summary><b> 2️⃣ What other prerequisites are required?</b></summary>
+<hr>
+<ul>
+<li>You will need a GitHub account
+<li>You will also need an Astra account: don't worry, we'll work through that in the following
+</ul>
+</p>
+</details>
+<p/>
+<details>
+<summary><b> 3️⃣ Do I need to pay for anything for this workshop?</b></summary>
+<hr>
+<b>No.</b> All tools and services we provide here are FREE.
+</details>
+<p/>
+<details>
+<summary><b> 4️⃣ Will I get a certificate if I attend this workshop?</b></summary>
+<hr>
+Attending the session is not enough. You need to complete the homeworks detailed below and you will get a nice badge.
+</details>
+<p/>
 
-- *What other prerequisites are required?*
+> [🏠 Back to Table of Contents](#-table-of-content)
 
-> * You will need a GitHub account
-> * You will also need an Astra account: don't worry about this if you don't already have one, we'll work through that in the following
-
-- *Do I need to pay for anything for this workshop?*
-> * **No.** All tools and services we provide here are FREE.
-
-- *Will I get a certificate if I attend this workshop?*
-
-> Attending the session is not enough. You need to complete the homeworks detailed below and you will get a nice participation certificate a.k.a. badge.
-
-
-## Materials for the Session
+## 4. Materials for the Session
 
 It doesn't matter if you join our workshop live or you prefer to work at your own pace,
 we have you covered. In this repository, you'll find everything you need for this workshop:
@@ -60,23 +91,10 @@ we have you covered. In this repository, you'll find everything you need for thi
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
 
-## Homework
 
-# Let's start
+[🏠 Back to Table of Contents](#-table-of-content)
 
-## Table of contents
-
-1. *Setup* - [Create your Astra DB instance](#)
-2. *Setup* - [Create your Keys](#)
-3. *Setup* - [Setup Gitpod](#)
-4. *Cqlh* - [Cqlsh](#)
-6. *Prepare DB* - [Load the Data](#)
-7. *Application* - [Setup configuration](#)
-8. *Application* - [Start the application](#)
-9. [Homework instructions](#)
-
-
-## 1. Create your Astra DB instance
+## 5. Create Astra DB Instance
 
 > Leveraging [Database creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance) create a database.
 
@@ -85,8 +103,9 @@ we have you covered. In this repository, you'll find everything you need for thi
 |**Database Name**| `workshops`|
 |**Keyspace Name**| `better_reads`|
 
+[🏠 Back to Table of Contents](#-table-of-content)
 
-## 2. Create your Credentials, Keys, Token
+## 6. Create Astra Token
 
 > Leveraging [Token creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-Astra-Token) create a token. (`AstraCS:blablablabla`)
 
@@ -94,7 +113,7 @@ we have you covered. In this repository, you'll find everything you need for thi
 |---|---|
 |**Role**| `Database Amimistrator`|
 
-## 3. Setup Gitpod
+## 7. Start and setup Gitpod
 
 - Start gitpod with the button below *(right-click open in new tab)*
 
@@ -108,7 +127,7 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 - Enter your tokeb `AstraCS;blahblahblah` and press enter. Wait for all the operations to complete.
 
-## 4. Cqlsh
+## 8. Work with CqlSh
 
 - Interactive Cqlsh to Astra
 
@@ -125,7 +144,7 @@ set -a && source /workspace/workshop-betterreads/.env && set +a && /workspace/wo
 
 *Notes that all tables are created   MAGIC !*
 
-## 5. Load the data
+## 9. Load Data with DSBulk
 
 TBD with DSbulk 
 
