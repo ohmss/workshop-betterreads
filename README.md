@@ -18,8 +18,6 @@ A full-featured Spring Application on top of Cassandra showing
 
 This application has been built by [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a great youtuber. On his channel you can find the full *Code with me Series*, 16 episodes for building this application step-by-step.
 
-
-
 <!--- ENDEXCLUDE --->
 
 ## Objectives
