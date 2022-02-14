@@ -11,6 +11,8 @@
 
 Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.
 
+[🏁 Access HANDS-ON](-start-hands-on)
+
 ## 📋 Table of content
 
 <img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" align="right" width="400px"/>
@@ -39,7 +41,7 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
   * **Thymeleaf:** how to build a user interface with Spring
   * **Spring Test:** How to run tests
 
-### 2. Acknowledgements
+## 2. Acknowledgements
 
 This application has been built based on the work of [**Java Brains**](https://www.youtube.com/channel/UCYt1sfh5464XaDBH0oH_o7Q), a famous youtuber *(500k+ subscribers)*. On his channel you can find the full [*Code with me Series*](https://www.youtube.com/watch?v=LxVGFBRpEFM), 16 episodes for building this application step-by-step. The link to each episode is provided at the end of this readme.
 
@@ -95,6 +97,10 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 
 [🏠 Back to Table of Contents](#-table-of-content)
+
+----
+
+# 🏁 Start Hands-on
 
 ## 5. Create Astra DB Instance
 
