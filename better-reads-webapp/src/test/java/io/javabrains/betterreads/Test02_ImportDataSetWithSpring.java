@@ -14,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import io.javabrains.betterreads.author.Author;
@@ -31,11 +30,9 @@ public class Test02_ImportDataSetWithSpring {
     @Autowired
     private BookRepository bookRepository;
     
-    @Value("${datadump.location.works}")
-    private String workFile;
+    private String workFile   = "src/test/resources/test-works.txt";
     
-    @Value("${datadump.location.authors}")
-    private String authorFile;
+    private String authorFile = "src/test/resources/test-authors.txt";
     
     @Test
     public void should_load_authors() throws IOException {

@@ -17,10 +17,6 @@ spring:
     cassandra:
       schema-action: create-if-not-exists
 
-datadump.location:
-  works: src/test/resources/test-works.txt
-  authors: src/test/resources/test-authors.txt
-  
 astra:
   api:
     application-token: ${ASTRA_DB_ADMIN_TOKEN}

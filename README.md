@@ -259,9 +259,6 @@ Operation directory: /workspace/workshop-betterreads/logs/LOAD_20220214-132501-5
 17,152 |      0 |  3,074 | 22.68 | 58.98 | 103.81 |    1.00
 ```
 
-> TODO ⚠️ THE INPUT FILE HAS STILL 0.1% error and import will FAILED AFTER 150k records 
-
-
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 10. Use Application in anonymous
