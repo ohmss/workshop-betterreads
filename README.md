@@ -7,7 +7,7 @@
 
 > ⚠️ Difficulty: **`Intermediate`**
 
-Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.> 
+Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.
 
 ## 📋 Table of contents
 

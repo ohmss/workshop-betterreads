@@ -32,7 +32,6 @@ public class HomeController  {
         Slice<BooksByUser> booksSlice = booksByUserRepository.findAllById(userId, CassandraPageRequest.of(0, 100));
         List<BooksByUser> booksByUser = booksSlice.getContent();
         if (booksByUser != null) {
-            System.out.println(booksByUser.size());
             booksByUser = booksByUser.stream().distinct().map(book -> {
                 String coverImageUrl = "/images/no-image.png";
                 if (book.getCoverIds() != null && book.getCoverIds().size() > 0) {
