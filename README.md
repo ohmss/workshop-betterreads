@@ -209,8 +209,6 @@ token@cqlsh:better_reads> describe tables;
 author_by_id  books_by_user  book_by_id  book_by_user_and_bookid
 ```
 
-`DARK MAGIC !`
-
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 9. Load Data with DSBulk
@@ -439,7 +437,32 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
 
 ## 12. Authenticate and use application
 
+- After setting up the connection you can now start the application again
+
+```
+cd /workspace/workshop-betterreads/better-reads-webapp
+mvn spring-boot:run
+```
+
+- On homepage click on `Authenticate with Github`
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/homepage.png?raw=true)
+
+- Authenticate against github
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps12.png?raw=true)
+
+- Validate the source
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps12.png?raw=true)
+
+- Get the login value
+
+<img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" />
+
+
 [🏠 Back to Table of Contents](#-table-of-content)
+
 
 ## 13. Homeworks
 
