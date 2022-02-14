@@ -1,6 +1,6 @@
 ## Tools Folder
 
-Expected tools will be downloaded at startup
-- Astra-setup
+This folder will be use to download
+
 - cqlsh
 - dsbulk
