@@ -454,15 +454,13 @@ mvn spring-boot:run
 
 - Validate the source
 
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps12.png?raw=true)
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps13.png?raw=true)
 
 - Get the login value
 
 <img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" />
 
-
 [🏠 Back to Table of Contents](#-table-of-content)
-
 
 ## 13. Homeworks
 
@@ -470,7 +468,7 @@ mvn spring-boot:run
 
 Don't forget to complete your assignment and get your verified skill badge! Finish and submit your homework!
 
-1. Complete the practice steps as described below until you have your own app running in Gitpod.
+1. Complete the practice steps as described below until you have your own app running in Gitpod. (up to step 11)
 2. Answer the technical questions in the form (We promise, it is NOT difficult if you follow the workshop).
 3. Take a screenshot of you authenticated in the app with a few books
 4. Submit your homework [here](https://dtsx.io/homework-betterreads)

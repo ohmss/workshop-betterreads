@@ -29,7 +29,15 @@
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4 space-bottom">Control your reading habit. Track the books you read and fuel your reading.</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center space-bottom">
-        <a type="button" href="/oauth2/authorization/github" class="btn btn-primary btn-lg px-4 gap-3">Login via GitHub</a>
+        <a type="button" href="/oauth2/authorization/github" class="btn btn-light btn-lg px-4 gap-3" 
+           style="color:black;border:1px solid #88888888">
+        <img th:src="@{/images/github-icon.svg}" /> Login via GitHub
+        </a>
+      </div>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center space-bottom">
+        <a type="button" href="/oauth2/authorization/google" class="btn btn-primary btn-lg px-4 gap-3">
+        <img th:src="@{/images/google-icon.svg}" /> Login via Google
+      </a>
       </div>
     </div>
     <div class="col-lg-6 mx-auto">

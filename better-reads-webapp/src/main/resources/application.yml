@@ -13,6 +13,9 @@ spring:
           github:
             client-id: Iv1.cf8b7bc35ce335cb
             client-secret: 947c56fff66d6019b0361931e4dee6e687a6fb8a
+          google:
+            client-id: 1006363057579-ptttbdufhk969pb1qd1klnthirj6ndvi.apps.googleusercontent.com
+            client-secret: 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
   data:
     cassandra:
       schema-action: create-if-not-exists

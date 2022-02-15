@@ -16,23 +16,33 @@ import reactor.core.publisher.Mono;
 @Controller
 public class SearchController {
 
+    private static final String OPEN_LIBRARY_ENDPOINT = "http://openlibrary.org/search.json";
+    
     private final String COVER_IMAGE_ROOT = "http://covers.openlibrary.org/b/id/";
 
     private final WebClient webClient;
 
     public SearchController(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.exchangeStrategies(ExchangeStrategies.builder()
-        .codecs(configurer -> configurer
-                  .defaultCodecs()
-                  .maxInMemorySize(16 * 1024 * 1024))
-                .build()).baseUrl("http://openlibrary.org/search.json").build();
+        this.webClient = webClientBuilder
+                .exchangeStrategies(ExchangeStrategies
+                    .builder()
+                    .codecs(configurer -> 
+                                configurer.defaultCodecs()
+                                          .maxInMemorySize(16 * 1024 * 1024))
+                    .build())
+                .baseUrl(OPEN_LIBRARY_ENDPOINT)
+                .build();
     }
 
     @GetMapping(value = "/search")
     public String getSearchResults(@RequestParam String query, Model model) {
-        Mono<SearchResult> resultsMono = this.webClient.get()
+        
+        Mono<SearchResult> resultsMono = this.webClient
+            .get()
             .uri("?q={query}", query)
-            .retrieve().bodyToMono(SearchResult.class);
+            .retrieve()
+            .bodyToMono(SearchResult.class);
+        
         SearchResult result = resultsMono.block();
         List<SearchResultBook> books = result.getDocs()
             .stream()

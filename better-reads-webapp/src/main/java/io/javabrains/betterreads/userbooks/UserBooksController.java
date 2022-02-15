@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import io.javabrains.betterreads.SecurityAdapter;
 import io.javabrains.betterreads.book.Book;
 import io.javabrains.betterreads.book.BookRepository;
 import io.javabrains.betterreads.user.BooksByUser;
@@ -32,11 +33,12 @@ public class UserBooksController {
     @PostMapping("/addUserBook")
     public ModelAndView addBookForUser(
         @RequestBody MultiValueMap<String, String> formData, 
-        @AuthenticationPrincipal OAuth2User principal
-    ) {
-        if (principal == null || principal.getAttribute("login") == null) {
-            return null;
-        }
+        @AuthenticationPrincipal OAuth2User principal) {
+        
+        // Check Auth
+        String userId = SecurityAdapter.getUserId(principal);
+        if (userId == null) new ModelAndView("index");
+        // <--
 
         String bookId = formData.getFirst("bookId");
         Optional<Book> optionalBook = bookRepository.findById(bookId);
@@ -47,7 +49,6 @@ public class UserBooksController {
 
         UserBooks userBooks  = new UserBooks();
         UserBooksPrimaryKey key = new UserBooksPrimaryKey();
-        String userId = principal.getAttribute("login");
         key.setUserId(userId);
         key.setBookId(bookId);
 

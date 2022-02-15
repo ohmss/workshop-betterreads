@@ -4,8 +4,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -24,9 +24,11 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 			.exceptionHandling(e -> e
 				.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
 			)
-			.csrf(c -> c
-				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-			)
+			// Disabling security
+			.csrf().disable()
+			//.csrf(c -> c
+			//	.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+			//)
 			.logout(l -> l
 			    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))            
                 .invalidateHttpSession(true)
@@ -35,6 +37,27 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 				.permitAll()
 			)
 			.oauth2Login();
+    }
+    
+    /**
+     * Look for user in the principal.
+     * 
+     * @param principal
+     *      current securty context
+     * @return
+     *      user id
+     */
+    public static String getUserId(OAuth2User principal ) {
+        String userId = null;
+        if (principal != null) {
+            if (principal.getAttribute("login") != null) {
+                userId = principal.getAttribute("login");
+            } else if (principal.getAttribute("email") != null) {
+                userId = principal.getAttribute("email");
+            }
+        }
+        System.out.println(principal);
+        return userId;
     }
     
 }

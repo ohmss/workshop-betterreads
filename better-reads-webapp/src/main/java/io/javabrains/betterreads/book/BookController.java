@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import io.javabrains.betterreads.SecurityAdapter;
 import io.javabrains.betterreads.userbooks.UserBooks;
 import io.javabrains.betterreads.userbooks.UserBooksPrimaryKey;
 import io.javabrains.betterreads.userbooks.UserBooksRepository;
@@ -36,8 +37,10 @@ public class BookController {
             }
             model.addAttribute("coverImage", coverImageUrl);
             model.addAttribute("book", book);
-            if (principal != null && principal.getAttribute("login") != null) {
-                String userId = principal.getAttribute("login");
+            
+            // Check Auth
+            String userId = SecurityAdapter.getUserId(principal);
+            if (userId != null) {
                 model.addAttribute("loginId", userId);
                 UserBooksPrimaryKey key = new UserBooksPrimaryKey();
                 key.setBookId(bookId);
@@ -50,8 +53,7 @@ public class BookController {
                 }
             }
             return "book";
-
-
+            
         }
         return "book-not-found";
     }

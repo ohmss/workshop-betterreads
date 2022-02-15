@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import io.javabrains.betterreads.SecurityAdapter;
 import io.javabrains.betterreads.user.BooksByUser;
 import io.javabrains.betterreads.user.BooksByUserRepository;
 
@@ -25,10 +26,11 @@ public class HomeController  {
 
     @GetMapping("/")
     public String home(@AuthenticationPrincipal OAuth2User principal, Model model) {
-        if (principal == null || principal.getAttribute("login") == null) {
-            return "index";
-        }
-        String userId = principal.getAttribute("login");
+        // Check Auth
+        String userId = SecurityAdapter.getUserId(principal);
+        if (userId == null) return "index";
+        // <--
+        
         Slice<BooksByUser> booksSlice = booksByUserRepository.findAllById(userId, CassandraPageRequest.of(0, 100));
         List<BooksByUser> booksByUser = booksSlice.getContent();
         if (booksByUser != null) {
