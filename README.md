@@ -26,8 +26,8 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
 7. [Start and setup Gitpod](#7-start-and-setup-gitpod)
 8. [Work with CqlSh](#8-work-with-cqlsh)
 9. [Load Data with DSBulk](#9-load-data-with-dsbulk)
-10. [Use Application in anonymous](#10-use-application-in-anonymous)
-11. [Setup Github Apps](#11-setup-github-apps)
+10. [Use Application as anonymous](#10-use-application-as-anonymous)
+11. [Setup Authentication](#11-setup-authentication)
 12. [Authenticate and use application](#12-authenticate-and-use-application)
 13. [Homeworks](#13-homeworks)
 
@@ -293,7 +293,7 @@ Operation COUNT_20220214-190203-775866 completed successfully in 8 seconds.
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
-## 10. Use Application in anonymous
+## 10. Use Application as anonymous
 
 - It would be handy to know the URL of the application
 
@@ -405,6 +405,12 @@ This is only what we can do at this point. To mark the book as read we will need
 
 - You are all set
 
+```
+You are now doomed we will now mine cryptos with your google account.
+
+Just kidding ^_^
+``` 
+
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp11.png?raw=true)
 
 - Open file `src/main/resources/application.yml` in your project
@@ -425,7 +431,7 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
             client-secret: change
 ```
 
-### ✅ 11b. Setup up Github (NOT FUNCTIONAL IN GITPOD)
+### ✅ 11b. Setup up Github
 
 As each attendee has a different URL in gitpod you will have to create your own github APPS. Let's do this together.
 
@@ -440,55 +446,34 @@ echo $(gp url 8080)/login/oauth2/code/github
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps1.png?raw=true)
 
-- There scroll down to locate the last item of the menu `Developer Settings` *(hopefully you have not as many organizations as me)*
+- There scroll down to locate the last item of the menu `Developer Settings` *(hopefully you have not as many organizations as me)*, There pick `OAuth Apps` (we are using OAuth)
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps2.png?raw=true)
 
-- Click button `[New Github Apps]` on the page
+- Click button `[New OAuth Apps]` on the page
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps3.png?raw=true)
 
-- You will be asked to login again for security reasons, then fill the form to register a new Github App
+- You will be asked to login again for security reasons, then fill the form to register a new Github App. Thre Register your application
 
 |Name| Value|
 |---|---|
-| `Github App name`| The application name shown to user |
+| `Application name`| The application name shown to user |
 | `Homepage URL`| Can be anything, just the app (gp url 8080) |
-| `CallbackURL`| Call back url the one listed above |
+| `Authorization Callback URL`| Call back url the one listed above `${homepage}/login/oauth2/code/github` |
 
+- Click `[Register Application]`
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps4.png?raw=true)
 
-- Uncheck the Webhook active box
+- The application is created. You got your clientId. You will have to generate a clientSecret now. Once you get both save them on a text file in your machine we will need them later
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps5.png?raw=true)
 
-- In user permission put the email adress and read and profile as red/writes.
+- When everything is set you can upload am image for your application and save the change with `[Update Application]`.
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps6.png?raw=true)
-
-- Allow `Any Account` to access
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps7.png?raw=true)
-
-- You got now your `Client ID`, check here it looks like `lv1....`. Click Generate a new client secret
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps8.png?raw=true)
-
-- Now you have it all time to update the application
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps9.png?raw=true)
-
-- Save the change
-
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps10.png?raw=true)
-
-
-```
-You are now doomed we will now mine cryptos with your github account 
-Just kidding.
-``` 
-
+ 
 - Open `application.yml`
 
 - Open file `src/main/resources/application.yml` in your project
@@ -525,19 +510,24 @@ mvn spring-boot:run
 
 - On homepage click on `Authenticate with Github`
 
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/homepage.png?raw=true)
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps7.png?raw=true)
 
-- Authenticate against github
+- Eventually you get the SSO screen for you organization
 
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps12.png?raw=true)
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps8.png?raw=true)
 
-- Validate the source
+- Then you authorize the application again
 
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps13.png?raw=true)
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps9.png?raw=true)
 
-- Your are in !
+```
+HAHAHA EVIL LAUGH YOU ARE DOOMED AGAIN WE ALSO HAVE YOUR GITHUB ACCOUNT NOW
+WE WILL FEED OUR TROLLS AND CODEX.AI WITH IT.
+```
 
-<img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" />
+- More seriously, Your are in !
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps10.png?raw=true)
 
 ### ✅ 12b. Authenticate with Google.
 
