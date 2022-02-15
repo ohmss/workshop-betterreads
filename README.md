@@ -425,7 +425,7 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
             client-secret: change
 ```
 
-### ✅ 11b. Setup up Github (local deployment)
+### ✅ 11b. Setup up Github (NOT FUNCTIONAL IN GITPOD)
 
 As each attendee has a different URL in gitpod you will have to create your own github APPS. Let's do this together.
 
