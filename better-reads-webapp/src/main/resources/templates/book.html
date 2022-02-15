@@ -17,21 +17,9 @@
 
 <body>
 	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-bottom: 20px">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="/" style="font-size:30px;font-weight:bold">🏠 Better Reads</a>
-				<a class="navbar-brand" sec:authorize="isAuthenticated()" th:href="'http://github.com/' + ${#authentication.principal.attributes[login]}">
-         <img sec:authorize="isAuthenticated()" th:src="${#authentication.principal.attributes[avatar_url]}" style="border-radius: 50%;height:50px"/>
-         <span sec:authorize="isAuthenticated()" th:text="${#authentication.principal.attributes[name]}" style="color:blue"></span>
-        </a>
-        <a class="navbar-brand" href="/logout" sec:authorize="isAuthenticated()" style="float:right">❌ Logout</a>
-      </div>
-    </nav>
-
-
-      <div th:insert="components/book-search :: search-panel"></div>
-      
-      <section class="content">
+	 <div th:insert="components/main :: navbar"></div>
+     <div th:insert="components/main :: search-panel"></div>
+     <section class="content">
 
         <div class="card">
           <div class="row g-0">
@@ -58,6 +46,7 @@
 			        <img th:src="@{/images/github-icon.svg}" /> Login via GitHub
 			        </a>
 			      </div>
+			      <p/>
 			      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center space-bottom">
 			        <a type="button" href="/oauth2/authorization/google" class="btn btn-primary btn-lg px-4 gap-3">
 			        <img th:src="@{/images/google-icon.svg}" /> Login via Google

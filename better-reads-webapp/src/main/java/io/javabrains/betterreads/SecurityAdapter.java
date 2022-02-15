@@ -56,7 +56,6 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
                 userId = principal.getAttribute("email");
             }
         }
-        System.out.println(principal);
         return userId;
     }
     
