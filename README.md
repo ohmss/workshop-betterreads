@@ -357,9 +357,75 @@ This is only what we can do at this point. To mark the book as read we will need
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
-## 11. Setup Github Apps
+## 11. Setup Authentication
 
-Default settings in `application.yml` use an application from `DatastaxDevelopers` but it must run locally.
+### ✅ 11a. Setup Google OAuth2
+
+- Connect to [Google Cloud Platform](https://console.cloud.google.com)
+
+- Create a new project if needed `BetterReadsDemoApps` and click `[CREATE]]`
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp1.png?raw=true)
+
+- Select `[ENABLE APIS AND SERVICES]` in menu
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp2.png?raw=true)
+
+- Search for Gmail and Google Analytics and add them to your project
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp3.png?raw=true)
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp4.png?raw=true)
+
+- Select `[OAuth consent screen]` in the menu on the left. Provide your application name, a support email and the application logo.
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp5.png?raw=true)
+
+- Check the `External` (or internal as you prefer).
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp6.png?raw=true)
+
+- On menu in the left select *Credentials* and use the button on top `[CREATE CREDENTIALS]`/ OAuth ClientID.
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp7.png?raw=true)
+
+- Select `Web Application` and provide a name
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp8.png?raw=true)
+
+- Add the URL home page *http://localhost:8080* if you work locally or the result of `gp url 8080` on gitpod.
+
+- Add the redirect *http://localhost:8080/login/oauth2/code/google* if you work locally or the result of `echo $(gp url 8080)/login/oauth2/code/google` on gitpod.
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp9.png?raw=true)
+
+- A new page open with you clientId and client secret copy them
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp10.png?raw=true)
+
+- You are all set
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp11.png?raw=true)
+
+- Open file `src/main/resources/application.yml` in your project
+
+```
+gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/application.yml
+```
+
+- Changes keys `client-id` and `client-secret` with your values for the provider `Google`.
+
+```yaml
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: change
+            client-secret: change
+```
+
+### ✅ 11b. Setup up Github (local deployment)
 
 As each attendee has a different URL in gitpod you will have to create your own github APPS. Let's do this together.
 
@@ -425,13 +491,24 @@ Just kidding.
 
 - Open `application.yml`
 
+- Open file `src/main/resources/application.yml` in your project
+
 ```
 gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/application.yml
 ```
 
-- Changes keys `client-id` and `client-secret` with your values
+- Changes keys `client-id` and `client-secret` with your values for the provider `Github`.
 
-![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps11.png?raw=true)
+```yaml
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: change
+            client-secret: change
+```
+
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
@@ -443,6 +520,8 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
 cd /workspace/workshop-betterreads/better-reads-webapp
 mvn spring-boot:run
 ```
+
+### ✅ 12a. Authenticate with Github
 
 - On homepage click on `Authenticate with Github`
 
@@ -456,9 +535,23 @@ mvn spring-boot:run
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps13.png?raw=true)
 
-- Get the login value
+- Your are in !
 
 <img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" />
+
+### ✅ 12b. Authenticate with Google.
+
+- Use the button `[Login via Google]`
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/google1.png?raw=true)
+
+- Validate with the familiar Google Screen
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/google2.png?raw=true)
+
+- You are in !
+
+![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/google3.png?raw=true)
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
