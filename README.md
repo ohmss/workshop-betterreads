@@ -121,7 +121,7 @@ If you already have a DB, you may need to resume it using the [Resuming Guide](h
 
 |Field|Value|
 |---|---|
-|**Role**| `Database Amimistrator`|
+|**Role**| `Database Administrator`|
 
 ## 7. Start and setup Gitpod
 
