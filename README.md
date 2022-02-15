@@ -352,7 +352,7 @@ gp preview $(gp url 8080)
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app3.png?raw=true)
 
-This is only what we can do at this point. To mark the book as read we will need to authenticate against `GITHUB`. 
+This is only what we can do at this point. To mark the book as read we will need to authenticate with `Google` or `Github`.
 
 
 [🏠 Back to Table of Contents](#-table-of-content)
@@ -395,11 +395,13 @@ This is only what we can do at this point. To mark the book as read we will need
 
 - Add the URL home page *http://localhost:8080* if you work locally or the result of `gp url 8080` on gitpod.
 
+**The screenshots below show `Google` authentication when the app is running on `localhost`. Carefully adjust the URLs accordingly to the Gitpod URL when application is running on Gitpod.**
+
 - Add the redirect *http://localhost:8080/login/oauth2/code/google* if you work locally or the result of `echo $(gp url 8080)/login/oauth2/code/google` on gitpod.
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp9.png?raw=true)
 
-- A new page open with you clientId and client secret copy them
+- A new page will open with your clientId and client secrets. Make sure you copy them
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp10.png?raw=true)
 
@@ -431,11 +433,12 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
             client-secret: change
 ```
 
+
 ### ✅ 11b. Setup up Github
 
-As each attendee has a different URL in gitpod you will have to create your own github APPS. Let's do this together.
+As each attendee has a different URL in gitpod you will have to create your own github OAuth Apps. Let's do this together.
 
-- During github setting we will have to enter a callback URL. To know which one enter use the following command
+- For github settings we will have to enter a callback URL. To know which one enter use the following command
 
 ```
 clear
