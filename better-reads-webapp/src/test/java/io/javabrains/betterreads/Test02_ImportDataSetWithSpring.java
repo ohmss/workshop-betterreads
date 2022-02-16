@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import io.javabrains.betterreads.author.Author;
-import io.javabrains.betterreads.author.AuthorRepository;
+import io.javabrains.betterreads.author.AuthorRepositorySimple;
 import io.javabrains.betterreads.book.Book;
 import io.javabrains.betterreads.book.BookRepository;
 
@@ -25,7 +25,7 @@ import io.javabrains.betterreads.book.BookRepository;
 public class Test02_ImportDataSetWithSpring {
     
     @Autowired
-    private AuthorRepository authorRepository;
+    private AuthorRepositorySimple authorRepository;
     
     @Autowired
     private BookRepository bookRepository;
