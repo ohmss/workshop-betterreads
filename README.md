@@ -443,7 +443,7 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
 
 ### ✅ 11b. Setup up Github
 
-As each attendee has a different URL in gitpod you will have to create your own github OAuth Apps. Let's do this together.
+As each attendee has a different URL in gitpod, you will have to create your own github `OAuth Apps - Let's do this together.
 
 - For github settings we will have to enter a callback URL. To know which one enter use the following command
 
@@ -509,7 +509,7 @@ gp open /workspace/workshop-betterreads/better-reads-webapp/src/main/resources/a
 
 ## 12. Authenticate and use application
 
-- After setting up the connection you can now start the application again
+- After setting up the connection you can now start the application again :
 
 ```
 cd /workspace/workshop-betterreads/better-reads-webapp
@@ -531,7 +531,9 @@ mvn spring-boot:run
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/githubapps9.png?raw=true)
 
 ```
-HAHAHA EVIL LAUGH YOU ARE DOOMED AGAIN WE ALSO HAVE YOUR GITHUB ACCOUNT NOW
+HAHAHA EVIL LAUGH 
+
+YOU ARE DOOMED AGAIN WE ALSO HAVE YOUR GITHUB ACCOUNT NOW
 WE WILL FEED OUR TROLLS AND CODEX.AI WITH IT.
 ```
 
