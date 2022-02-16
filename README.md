@@ -34,12 +34,14 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
 ## 1. Objectives
 
 * Discover how to use the following technologies: 
-  * **Astra DB** (a Database-as-a-service built on Apache Cassandra)
   * **Spring Data:** the Object Mapping layer of Spring
-  * **Spring Security:** how to handle authentication
+  * **Spring Data Cassandra:** what traps to avoid
+  * **Spring Security:** how to handle authentication with OAuth2
   * **Spring MVC:** how to expose REST API and controllers
+  * **Spring Webflux:** how to use the new `WebClient`
   * **Thymeleaf:** how to build a user interface with Spring
   * **Spring Test:** How to run tests
+  * **Astra DB** (a Database-as-a-service built on Apache Cassandra)
 
 ## 2. Acknowledgements
 
@@ -65,8 +67,10 @@ In this readme, we try to provide instructions for local development as well - b
 <summary><b> 2️⃣ What other prerequisites are required?</b></summary>
 <hr>
 <ul>
-<li>You will need a GitHub account
-<li>You will also need an Astra account: don't worry, we'll work through that in the following
+<li>You will need an enough *real estate* on screen, we will ask you to open a few windows and it does not file mobiles (tablets should be OK)
+<li>You will need a GitHub account eventually a google account for the Google Authentication (optional)
+<li>You will need an Astra account: don't worry, we'll work through that in the following
+<li>As Intermediate level we expect you to know what java and Spring are. 
 </ul>
 </p>
 </details>
@@ -74,13 +78,13 @@ In this readme, we try to provide instructions for local development as well - b
 <details>
 <summary><b> 3️⃣ Do I need to pay for anything for this workshop?</b></summary>
 <hr>
-<b>No.</b> All tools and services we provide here are FREE.
+<b>No.</b> All tools and services we provide here are FREE. FREE not only during the session but also after.
 </details>
 <p/>
 <details>
 <summary><b> 4️⃣ Will I get a certificate if I attend this workshop?</b></summary>
 <hr>
-Attending the session is not enough. You need to complete the homeworks detailed below and you will get a nice badge.
+Attending the session is not enough. You need to complete the homeworks detailed below and you will get a nice badge that you can share on linkedin or anywhere else *(open api badge)*
 </details>
 <p/>
 
@@ -91,12 +95,10 @@ Attending the session is not enough. You need to complete the homeworks detailed
 It doesn't matter if you join our workshop live or you prefer to work at your own pace,
 we have you covered. In this repository, you'll find everything you need for this workshop:
 
-- [Slide deck](#)
+- [Slide deck](/slides/slides.pdf)
 - [Discord chat](https://dtsx.io/discord)
 - [Questions and Answers](https://community.datastax.com/)
-
-
-[🏠 Back to Table of Contents](#-table-of-content)
+- [Twitch backup](https://www.twitch.tv/datastaxdevs)
 
 ----
 
@@ -108,10 +110,13 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 |Field|Value|
 |---|---|
+|**Astra Link** | [https://astra.datastax.com](https://astra.dev/2-16) |
 |**Database Name**| `workshops`|
 |**Keyspace Name**| `better_reads`|
 
-If you already have a DB, you may need to resume it using the [Resuming Guide](https://github.com/datastaxdevs/awesome-astra/wiki/How-to-resume-a-database) and simply add the `better_reads` keyspace.
+#### ℹ️ Notes:
+- If you already have a DB, you may need to resume it using the [Resuming Guide](https://github.com/datastaxdevs/awesome-astra/wiki/How-to-resume-a-database).
+- If yout already have an active DB simply add a keyspace `better_reads` using the `Add Keyspace` button on the bottom right hand corner of db dahboard page.
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
@@ -122,6 +127,9 @@ If you already have a DB, you may need to resume it using the [Resuming Guide](h
 |Field|Value|
 |---|---|
 |**Role**| `Database Administrator`|
+
+#### ℹ️ Notes:
+- If you already have a token from previous session you can use it. A token is not related to a particular DB by default but to organization.
 
 ## 7. Start and setup Gitpod
 
