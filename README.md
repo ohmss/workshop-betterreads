@@ -7,7 +7,7 @@
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Discord](https://img.shields.io/discord/685554030159593522)](https://discord.com/widget?id=685554030159593522&theme=dark)
 
-> ⚠️ Difficulty: **`Intermediate`**
+> ⚠️ Difficulty: **`Intermediate`, we expect you to already know Java and Spring.**
 
 Learn how to build an app end-to-end application with Spring ecosystem *(boot, mvc, security, data, test, thymeleaf)* and Apache Cassandra™.
 
@@ -42,6 +42,7 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
   * **Thymeleaf:** how to build a user interface with Spring
   * **Spring Test:** How to run tests
   * **Astra DB** (a Database-as-a-service built on Apache Cassandra)
+* Han fun with an interactive session
 
 ## 2. Acknowledgements
 
@@ -116,7 +117,7 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 #### ℹ️ Notes:
 - If you already have a DB, you may need to resume it using the [Resuming Guide](https://github.com/datastaxdevs/awesome-astra/wiki/How-to-resume-a-database).
-- If yout already have an active DB simply add a keyspace `better_reads` using the `Add Keyspace` button on the bottom right hand corner of db dahboard page.
+- If yout already have an active DB, simply add a keyspace `better_reads` using the `Add Keyspace` button on the bottom right hand corner of db dashboard page.
 
 [🏠 Back to Table of Contents](#-table-of-content)
 
@@ -160,11 +161,11 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 It would be handy to have access to this CQLSH while doing the exercises and check the content of the database.
 
-- Open a new terminal with the proper icon as show below
+- Open a new terminal with the icon looking like a small table on top right hand corner of the Terminal Panel in gitpod (as shown below)
 
 ![new_terminal2](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/new-terminal1.png?raw=true)
 
-or 
+... zooming in:  
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/new-terminal2.png?raw=true)
 
@@ -217,11 +218,14 @@ token@cqlsh:better_reads> describe tables;
 author_by_id  books_by_user  book_by_id  book_by_user_and_bookid
 ```
 
+- Let this panel opened but for following command we will be back to the termimal
+- 
+
 [🏠 Back to Table of Contents](#-table-of-content)
 
 ## 9. Load Data with DSBulk
 
-- Check you have the dataset ready. In the `BASH` terminal (not the cqlsh one). You should see the cql file `book_by_id_0.csv`.
+- Check you have the dataset ready. In the `BASH` terminal **(⚠️ = NOT the cqlsh)**. You should see the cql file `book_by_id_0.csv`.
 
 ```
 ls -l /workspace/workshop-betterreads/dataset/
@@ -233,7 +237,7 @@ ls -l /workspace/workshop-betterreads/dataset/
 wc -l /workspace/workshop-betterreads/dataset/book_by_id_0.csv
 ```
 
-- Check that Datastax bulk loader is properly installed *(Dark magic again)*
+- Check that Datastax bulk loader is properly installed *(It has been installed for you at startup)*
 
 ```
 /workspace/workshop-betterreads/tools/dsbulk-1.8.0/bin/dsbulk --version
@@ -253,7 +257,7 @@ wc -l /workspace/workshop-betterreads/dataset/book_by_id_0.csv
    -url /workspace/workshop-betterreads/dataset/book_by_id_0.csv
 ```
 
-- The batch is running and should be able to see the throughput at 3700 records per second.
+- The batch is running and should be able to see the throughput at ~3k records per second.
 
 ```
 Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
@@ -265,7 +269,7 @@ Operation directory: /workspace/workshop-betterreads/logs/LOAD_20220214-132501-5
 17,152 |      0 |  3,074 | 22.68 | 58.98 | 103.81 |    1.00
 ```
 
-- After about 1 minute. The file can have some errors like invalid title with special characters.
+- The operation should take about 1 minute to complete. The file can have some errors like invalid title with special characters. IT IS NOT A PROBLEM the dataset is not perfect we will have some failed rows.
 
 ```
   total | failed | rows/s | p50ms | p99ms | p999ms | batches
@@ -273,7 +277,7 @@ Operation directory: /workspace/workshop-betterreads/logs/LOAD_20220214-132501-5
 Operation LOAD_20220214-185449-001328 completed with 183 errors in 1 minute and 7 seconds.
 ```
 
-- You can also now import `book_by_id_1.csv`.
+- In the same way - you can also now import `book_by_id_1.csv`.
 
 - Count Records in the table `book_by_id`
 
@@ -286,7 +290,7 @@ Operation LOAD_20220214-185449-001328 completed with 183 errors in 1 minute and 
    -b /home/gitpod/.astra/scb_${ASTRA_DB_ID}_${ASTRA_DB_REGION}.zip
 ```
 
-- Expected output (about 500.000k)
+- Expected output (about 500.000k), during the live speaker will have more because he imported way more files.
 
 ```
 Picked up JAVA_TOOL_OPTIONS:  -Xmx2576m
@@ -319,7 +323,6 @@ mvn spring-boot:run
 - Output
 
 ```
-
  ________          __                   __                  ________                     .__                                     
  \______ \ _____ _/  |______    _______/  |______  ___  ___ \______ \   _______  __ ____ |  |   ____ ______   ___________  ______
   |    |  \\__  \\   __\__  \  /  ___/\   __\__  \ \  \/  /  |    |  \_/ __ \  \/ // __ \|  |  /  _ \\____ \_/ __ \_  __ \/  ___/
@@ -329,8 +332,6 @@ mvn spring-boot:run
 
  BetterReads with Spring Boot, String Data, Spring NVC, Spring security
  An application by JabaBrains.
-
-
  The application will start at http://localhost:8080
 
 
@@ -344,7 +345,7 @@ mvn spring-boot:run
 13:37:23.041 INFO  com.datastax.astra.sdk.AstraClient              : [AstraClient] has been initialized.
 ```
 
-- In a new tab open the application with the above url
+- Open a new terminal (yes a 3rd one again, 2 previous are busy, same icon) and enter the command.
 
 ```
 gp preview $(gp url 8080)
@@ -352,11 +353,11 @@ gp preview $(gp url 8080)
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app1.png?raw=true)
 
-- In the search item look for `Glimpses of ancient Sowams` you can search to whatever you want it will request open library ut during this workshop you only imported a subset of books, let us pick one you imported
+- In the search item look for `Glimpses of ancient Sowams` you can search to whatever you want it will request open library ut during this workshop you only imported a subset of books, let us pick one you imported.
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app2.png?raw=true)
 
-- Select the first item, if you select the second you will hit the page book not found as this book is not in the DB
+- Select the first item, if you select the second you will hit the page book not found as this book is not in the DB.
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/app3.png?raw=true)
 
@@ -367,11 +368,11 @@ This is only what we can do at this point. To mark the book as read we will need
 
 ## 11. Setup Authentication
 
-### ✅ 11a. Setup Google OAuth2
+### ✅ 11a. Setup Google OAuth2 (optional)
 
 - Connect to [Google Cloud Platform](https://console.cloud.google.com)
 
-- Create a new project if needed `BetterReadsDemoApps` and click `[CREATE]]`
+- Create a new project if needed, on the screens i put `BetterReadsDemoApps` and click `[CREATE]]`
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp1.png?raw=true)
 
@@ -379,7 +380,7 @@ This is only what we can do at this point. To mark the book as read we will need
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp2.png?raw=true)
 
-- Search for Gmail and Google Analytics and add them to your project
+- Search for Gmail and Google Analytics Apis and add them to your project.
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp3.png?raw=true)
 
@@ -389,7 +390,7 @@ This is only what we can do at this point. To mark the book as read we will need
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp5.png?raw=true)
 
-- Check the `External` (or internal as you prefer).
+- Check `External` (or internal as you prefer to limit scope).
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp6.png?raw=true)
 
@@ -397,11 +398,11 @@ This is only what we can do at this point. To mark the book as read we will need
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp7.png?raw=true)
 
-- Select `Web Application` and provide a name
+- Select `Web Application` and provide it a name
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp8.png?raw=true)
 
-- Add the URL home page *http://localhost:8080* if you work locally or the result of `gp url 8080` on gitpod.
+- Add the URL home page. It will the result of `gp url 8080` command on gitpod or *http://localhost:8080* if you work locally.
 
 **The screenshots below show `Google` authentication when the app is running on `localhost`. Carefully adjust the URLs accordingly to the Gitpod URL when application is running on Gitpod.**
 
@@ -409,11 +410,9 @@ This is only what we can do at this point. To mark the book as read we will need
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp9.png?raw=true)
 
-- A new page will open with your clientId and client secrets. Make sure you copy them
+- A new page will open with your `clientId` and `client Secret`. Make sure you copy them locallym you will need to setup your application with it.
 
 ![new_terminal](https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/gcp10.png?raw=true)
-
-- You are all set
 
 ```
 You are now doomed we will now mine cryptos with your google account.
