@@ -28,7 +28,10 @@ public class BookController {
     
     @GetMapping(value = "/books/{bookId}")
     public String getBook(@PathVariable String bookId, Model model, @AuthenticationPrincipal OAuth2User principal) {
+        
         Optional<Book> optionalBook = bookRepository.findById(bookId);
+        
+        
         if (optionalBook.isPresent()) {
             Book book = optionalBook.get();
             String coverImageUrl = "/images/no-image.png";

@@ -44,6 +44,7 @@ public class SearchController {
             .bodyToMono(SearchResult.class);
         
         SearchResult result = resultsMono.block();
+        
         List<SearchResultBook> books = result.getDocs()
             .stream()
             .limit(10)
