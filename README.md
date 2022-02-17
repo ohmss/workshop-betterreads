@@ -109,7 +109,7 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 > Leveraging [Database creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance) create a database. *Right-Click the button* with *Open in a new TAB.*
 
-<a href="https://astra.dev/2-23"><img src="img/create_astra_db_button.png?raw=true" /></a>
+<a href="https://astra.dev/2-16"><img src="img/create_astra_db_button.png?raw=true" /></a>
 
 |Field|Value|
 |---|---|
