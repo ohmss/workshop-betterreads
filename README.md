@@ -107,11 +107,12 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 ## 5. Create Astra DB Instance
 
-> Leveraging [Database creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance) create a database.
+> Leveraging [Database creation guide](https://github.com/datastaxdevs/awesome-astra/wiki/Create-an-AstraDB-Instance) create a database. *Right-Click the button* with *Open in a new TAB.*
+
+<a href="https://astra.dev/2-23"><img src="img/create_astra_db_button.png?raw=true" /></a>
 
 |Field|Value|
 |---|---|
-|**Astra Link** | [https://astra.datastax.com](https://astra.dev/2-16) |
 |**Database Name**| `workshops`|
 |**Keyspace Name**| `better_reads`|
 
