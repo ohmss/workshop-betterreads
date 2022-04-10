@@ -3,7 +3,7 @@
 
 <img src="img/badge.png?raw=true" width="150" align="right" />
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ohmss/workshop-goodreads-clone)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ohmss/workshop-betterreads)
 [![License Apache2](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Discord](https://img.shields.io/discord/685554030159593522)](https://discord.com/widget?id=685554030159593522&theme=dark)
 
@@ -15,7 +15,7 @@ Learn how to build an app end-to-end application with Spring ecosystem *(boot, m
 
 ## 📋 Table of content
 
-<img src="https://github.com/datastaxdevs/workshop-betterreads/blob/master/img/screenshot.png?raw=true" align="right" width="400px"/>
+<img src="https://github.com/ohmss/workshop-betterreads/blob/master/img/screenshot.png?raw=true" align="right" width="400px"/>
 
 1. [Objectives](#1-objectives)
 2. [Acknowledgements](#2-acknowledgements)
@@ -137,7 +137,7 @@ we have you covered. In this repository, you'll find everything you need for thi
 
 - Start gitpod with the button below *(right-click open in new tab)*
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/datastaxdevs/workshop-betterreads)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ohmss/workshop-betterreads)
 
 - Wait for the environment to initialize until you are asked to provide your token:
 
